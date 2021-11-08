@@ -2,13 +2,8 @@ package main.Ventanas;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.sql.Connection;
-import java.sql.Statement;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.List;
 
 import javax.swing.ComboBoxModel;
@@ -50,15 +45,15 @@ public class VentanaRegistro extends JFrame {
 		getContentPane().add(lblContrasea);
 
 		passwordField = new JPasswordField();
-		passwordField.setBounds(156, 70, 106, 21);
+		passwordField.setBounds(156, 70, 152, 21);
 		getContentPane().add(passwordField);
 
 		JRadioButton rdbtnHombre = new JRadioButton("Hombre");
-		rdbtnHombre.setBounds(108, 189, 86, 23);
+		rdbtnHombre.setBounds(201, 189, 86, 23);
 		getContentPane().add(rdbtnHombre);
 
 		JRadioButton rdbtnMujer = new JRadioButton("Mujer");
-		rdbtnMujer.setBounds(235, 189, 78, 23);
+		rdbtnMujer.setBounds(361, 189, 78, 23);
 		getContentPane().add(rdbtnMujer);
 
 		JLabel lblFechaDeNacimiento = new JLabel("Fecha de nacimiento");
@@ -66,7 +61,7 @@ public class VentanaRegistro extends JFrame {
 		getContentPane().add(lblFechaDeNacimiento);
 
 		JButton btnAceptar = new JButton("Aceptar");
-		btnAceptar.setBounds(145, 247, 117, 29);
+		btnAceptar.setBounds(156, 247, 117, 29);
 		getContentPane().add(btnAceptar);
 
 //		btnAceptar.addActionListener(new ActionListener() {
@@ -75,7 +70,7 @@ public class VentanaRegistro extends JFrame {
 //		});
 
 		JButton btnCancelar = new JButton("Cancelar");
-		btnCancelar.setBounds(341, 247, 117, 29);
+		btnCancelar.setBounds(342, 247, 117, 29);
 		getContentPane().add(btnCancelar);
 
 		// Esto se lanza cuando alguien pulsa el boton de Cancelar
@@ -91,7 +86,7 @@ public class VentanaRegistro extends JFrame {
 		getContentPane().add(lblGenero);
 
 		textField_nombre = new JTextField();
-		textField_nombre.setBounds(156, 29, 106, 20);
+		textField_nombre.setBounds(156, 29, 152, 20);
 		getContentPane().add(textField_nombre);
 		textField_nombre.setColumns(10);
 
@@ -132,7 +127,7 @@ public class VentanaRegistro extends JFrame {
 		cbAnyo = new JComboBox<Object>();
 		cbAnyo.setModel((ComboBoxModel<Object>) new DefaultComboBoxModel<Object>(
 				lstAnyos.toArray(new Integer[lstAnyos.size()])));
-		cbAnyo.setBounds(361, 137, 128, 20);
+		cbAnyo.setBounds(361, 138, 128, 20);
 		getContentPane().add(cbAnyo);
 
 	}
