@@ -1,4 +1,4 @@
-package main.Ventanas;
+package main.ventanas;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -15,7 +15,7 @@ public class VentanaLogin extends JFrame {
 	public static String nombre;
 	private JTextField textField;
 	private JPasswordField passwordField_1;
-	public static final String NOMBRE_BD = "multiJuegos.bd";
+	public static final String NOMBRE_BD = "pacman.bd";
 
 	public VentanaLogin() {
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
