@@ -1,4 +1,4 @@
-package main.General;
+package main.general;
 
 public class Main {
 
