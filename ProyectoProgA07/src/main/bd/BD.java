@@ -1,4 +1,4 @@
-package main.BD;
+package main.bd;
 
 public class BD {
 
