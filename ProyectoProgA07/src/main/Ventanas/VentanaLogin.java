@@ -10,14 +10,14 @@ import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
 
-public class VentanaLoggin extends JFrame {
+public class VentanaLogin extends JFrame {
 	private static final long serialVersionUID = 1L;
 	public static String nombre;
 	private JTextField textField;
 	private JPasswordField passwordField_1;
 	public static final String NOMBRE_BD = "multiJuegos.bd";
 
-	public VentanaLoggin() {
+	public VentanaLogin() {
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setResizable(false);
 		setSize(370, 200);
@@ -72,7 +72,7 @@ public class VentanaLoggin extends JFrame {
 
 
 	public static void main(String[] args) {
-		VentanaLoggin v = new VentanaLoggin();
+		VentanaLogin v = new VentanaLogin();
 		v.setVisible(true);
 
 	}
