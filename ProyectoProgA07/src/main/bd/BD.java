@@ -1,14 +1,35 @@
 package main.bd;
 
 
-import java.util.logging.FileHandler;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+import java.sql.*;
+import java.util.logging.*;
 
 
 public class BD {
 	
+	private static Exception lastError = null; // Nos informa del ultimo errror sql ocurrido
 
+	private static Connection connection = null;
+	
+	public static Connection initBD(String nombreBD) {
+		try {
+			if (connection == null) {
+				Class.forName("org.sqlite.JDBC");
+				connection = DriverManager.getConnection("jdbc:sqlite:" + nombreBD);
+				log(Level.INFO, "Conectada base de datos " + nombreBD, null);
+			}
+			return connection;
+		} catch (ClassNotFoundException | SQLException e) {
+			lastError = e;
+			log(Level.SEVERE, "Error en conexión de base de datos " + nombreBD, e);
+			e.printStackTrace();
+			return null;
+		}
+	}
+	
 	
 	private static Logger logger = null;
 	
