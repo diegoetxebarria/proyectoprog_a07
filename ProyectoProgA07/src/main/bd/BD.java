@@ -105,5 +105,20 @@ public class BD {
 	}
 	
 	//Metodo para cerrar la base de datos
+	
+	public static void closeBD(Connection con, Statement st) {
+		try {
+			if (st != null)
+				st.close();
+			if (con != null)
+				con.close();
+			log("Base de datos cerra da con extio", null);
+		} catch (SQLException e) {
+			lastError = e;
+			log("Error al cerrar la base de  datos", e);
+			e.printStackTrace();
+		}
+	}
+	}
 
-}
+
