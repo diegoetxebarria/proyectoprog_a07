@@ -85,5 +85,25 @@ public class BD {
 		
 		
 	}
+	
+	//Reincio/Borrado de las tablas ya creadas
+	
+	public static Statement reinicioBD (Connection con, String tabla) {
+		try {
+			Statement statement = con.createStatement();
+			statement.setQueryTimeout(10); 
+			statement.executeUpdate("Drop table if exists " + tabla);
+			log("Tabla eliminida con extio:" + tabla, null);
+			return creacionTablas(con);
+		} catch (SQLException e) {
+			log("Error en reinicio de base de datos", e);
+			lastError = e;
+			e.printStackTrace();
+			
+			return null;
+		}
+	}
+	
+	//Metodo para cerrar la base de datos
 
 }
