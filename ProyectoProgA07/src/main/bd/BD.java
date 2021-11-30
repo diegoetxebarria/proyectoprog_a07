@@ -184,7 +184,7 @@ public class BD {
 		}
 	}
 
-	// Metodo que ma
+	// Metodo que metera los niveles que tiene el pacman
 
 	public static boolean nivelInsert(Statement st, int idJuego, String nick, int maxNivel) {
 		String sentSQL = "";
@@ -193,8 +193,29 @@ public class BD {
 					+ ")";
 			int val = st.executeUpdate(sentSQL);
 			log("BD añadida con exito" + val + " fila\t" + sentSQL, null);
-			if (val != 1) { // Se tiene que añadir 1 - error si no
+			if (val != 1) { // Se tendra que añadir, sino dara error
 				log("Error al realizar el insert de BD\t" + sentSQL, null);
+				return false;
+			}
+			return true;
+		} catch (SQLException e) {
+			log("Error en BD\t" + sentSQL, e);
+			lastError = e;
+			e.printStackTrace();
+			return false;
+		}
+	}
+	
+	//metodo que nos servira para insertar los datos del usuario con el juego al que ha jugado con el nivel, puntuacio.....
+	public static boolean participacionInsert(Statement st, String nick, int idJuego, int nivel, int puntuacion,long fecha) {
+		String sentSQL = "";
+		try {
+			sentSQL = "insert into participacion (nick, idJuego, nivel, puntuacion, fecha) values('" + nick + "',"
+					+ idJuego + "," + nivel + ", " + puntuacion + ", " + fecha + ")";
+			int val = st.executeUpdate(sentSQL);
+			log( "BD añadida " + val + " fila\t" + sentSQL, null);
+			if (val != 1) { // Se tendra que añadir, sino dara error
+				log("Error en insert de BD\t" + sentSQL, null);
 				return false;
 			}
 			return true;
