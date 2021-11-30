@@ -45,6 +45,10 @@ public class Usuario {
 	public void setFechaNacimiento(Date fechaNacimiento) {
 		this.fechaNacimiento = fechaNacimiento;
 	}
+	
+	public long getFechaNacimientoLong() {
+		return fechaNacimiento.getTime();
+	}
 
 	public Genero getGenero() {
 		return genero;
