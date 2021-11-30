@@ -225,5 +225,8 @@ public class BD {
 			e.printStackTrace();
 			return false;
 		}
+		
 	}
+	
+	//ME FALTA POR AÑADIR LOS METODOS PARA REALIZAR LOS SELECTS Y PARA GUARDAR LOS DATOS
 }
