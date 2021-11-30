@@ -163,13 +163,14 @@ public class BD {
 		}
 
 	}
-	//Metodo para meter informacion sobre el juego del pacman
+
+	// Metodo para meter informacion sobre el juego del pacman
 	public static boolean juegoInsert(Statement st, int idJuego, String juego) {
 		String sentSQL = "";
 		try {
 			sentSQL = "insert into juego (idJuego, juego) values(" + idJuego + ", '" + juego + "')";
 			int val = st.executeUpdate(sentSQL);
-			log( "BD añadida con exito" + val + " fila\t" + sentSQL, null);
+			log("BD añadida con exito" + val + " fila\t" + sentSQL, null);
 			if (val != 1) {// Se tendra que añadir, sino dara error
 				log("Error al realizar el insert de BD\t" + sentSQL, null);
 				return false;
@@ -182,9 +183,26 @@ public class BD {
 			return false;
 		}
 	}
-	
-	
-	//Metodo que ma
 
-	
+	// Metodo que ma
+
+	public static boolean nivelInsert(Statement st, int idJuego, String nick, int maxNivel) {
+		String sentSQL = "";
+		try {
+			sentSQL = "insert into nivel (idJuego, nick, maxNivel) values(" + idJuego + ", " + nick + ", " + maxNivel
+					+ ")";
+			int val = st.executeUpdate(sentSQL);
+			log("BD añadida con exito" + val + " fila\t" + sentSQL, null);
+			if (val != 1) { // Se tiene que añadir 1 - error si no
+				log("Error al realizar el insert de BD\t" + sentSQL, null);
+				return false;
+			}
+			return true;
+		} catch (SQLException e) {
+			log("Error en BD\t" + sentSQL, e);
+			lastError = e;
+			e.printStackTrace();
+			return false;
+		}
+	}
 }
