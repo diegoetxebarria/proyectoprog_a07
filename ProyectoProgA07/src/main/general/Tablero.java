@@ -1,17 +1,21 @@
 package main.general;
 
-<<<<<<< HEAD
+
+import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Graphics;
 import java.awt.Graphics2D;
+import java.awt.Toolkit;
 import java.util.Date;
 
+import javax.swing.ImageIcon;
+
+import main.Ventanas.NivelPacman;
+import main.pacman.Constantes;
 
 
 
-=======
->>>>>>> branch 'master' of https://github.com/diegoetxebarria/proyectoprog_a07.git
-//import main.bd.BD;
 
 public class Tablero {
 
@@ -104,6 +108,7 @@ public class Tablero {
 		} else {
 
 			moverPacman();
+			pintarPacman(g2d);
 			//Faltan metodos 
 		}
 	}
@@ -167,9 +172,216 @@ public class Tablero {
 		continuarNivel();
 	}
 	
+	private void pintarPacman(Graphics2D g2d) { // Pintar el pacman
+
+		if (Const.vistadx == -1) {
+			pintarvidaspacman(g2d);
+
+		} else if (Const.vistadx == 1) {
+			pintarPacmanIzquierda(g2d);
+		} else if (Const.vistady == -1) {
+			pintarPacmanArriba(g2d);
+		} else {
+			pintarPacmanAbajo(g2d);
+
+		}
+	}
+	
 
 	private void continuarNivel() {
-		//Falta crear metodo
+		short i;
+		int dx = 1;
+		int random;
+
+		for (i = 0; i < Const.fantasmasN; i++) {
+
+			Const.fanty[i] = 4 * Const.tamanobloque;
+			Const.fantx[i] = 4 * Const.tamanobloque;
+			Const.fantdy[i] = 0;
+			Const.fantdx[i] = dx;
+			dx = -dx;
+			random = (int) (Math.random() * (Const.velactual + 1));
+
+			if (random > Const.velactual) {
+				random = Const.velactual;
+
+			}
+
+			Const.fantvel[i] = Const.velocidades[random];
+	
+
+		}
+
+		Const.pacmanx = 7 * Const.tamanobloque;
+		Const.pacmany = 11 * Const.tamanobloque;
+		Const.pacmandx = 0;
+		Const.pacmandy = 0;
+		Const.exdx = 0;
+		Const.exdy = 0;
+		Const.vistadx = -1;
+		Const.vistady = 0;
+		Const.muerteEnYa = false;
+	}
+	
+	
+
+	private void pintarPacmanArriba(Graphics2D g2d1) {
+
+		switch (Const.pacmananimpos) {
+		case 1:
+			g2d1.drawImage(Const.pacman2arriba, Const.pacmanx + 1, Const.pacmany + 1, this);
+
+			break;
+		case 2:
+			g2d1.drawImage(Const.pacman3arriba, Const.pacmanx + 1, Const.pacmany + 1, this);
+			break;
+		case 3:
+			g2d1.drawImage(Const.pacman4arriba, Const.pacmanx + 1, Const.pacmany + 1, this);
+			break;
+		default:
+			g2d1.drawImage(Const.pacman1, Const.pacmanx + 1, Const.pacmany + 1, this);
+			break;
+		}
+	}
+
+	private void pintarPacmanAbajo(Graphics2D g2d1) {
+
+		switch (Const.pacmananimpos) {
+		case 1:
+			g2d1.drawImage(Const.pacman2abajo, Const.pacmanx + 1, Const.pacmany + 1, this);
+			break;
+		case 2:
+			g2d1.drawImage(Const.pacman3abajo, Const.pacmanx + 1, Const.pacmany + 1, this);
+			break;
+		case 3:
+			g2d1.drawImage(Const.pacman4abajo, Const.pacmanx + 1, Const.pacmany + 1, this);
+			break;
+		default:
+			g2d1.drawImage(Const.pacman1, Const.pacmanx + 1, Const.pacmany + 1, this);
+			break;
+		}
+	}
+
+	private void pintarvidaspacman(Graphics2D g2d1) {
+
+		switch (Const.pacmananimpos) {
+		case 1:
+			g2d1.drawImage(Const.pacman2izquierda, Const.pacmanx + 1, Const.pacmany + 1, this);
+			break;
+		case 2:
+			g2d1.drawImage(Const.pacman3izquierda, Const.pacmanx + 1, Const.pacmany + 1, this);
+			break;
+		case 3:
+			g2d1.drawImage(Const.pacman4izquierda, Const.pacmanx + 1, Const.pacmany + 1, this);
+			break;
+		default:
+			g2d1.drawImage(Const.pacman1, Const.pacmanx + 1, Const.pacmany + 1, this);
+			break;
+		} 
+		
+	}
+
+	private void pintarPacmanIzquierda(Graphics2D g2d1) {
+
+		switch (Const.pacmananimpos) {
+		case 1:
+			g2d1.drawImage(Const.pacman2derecha, Const.pacmanx + 1, Const.pacmany + 1, this);
+			break;
+		case 2:
+			g2d1.drawImage(Const.pacman3derecha, Const.pacmanx + 1, Const.pacmany + 1, this);
+			break;
+		case 3:
+			g2d1.drawImage(Const.pacma4derecha, Const.pacmanx + 1, Const.pacmany + 1, this);
+			break;
+		default:
+			g2d1.drawImage(Const.pacman1, Const.pacmanx + 1, Const.pacmany + 1, this);
+			break;
+		}
+	
+	}
+	
+	private void dibujarLaberinto(Graphics2D g2d) {
+
+		short i = 0;
+		int x, y;
+
+		for (y = 0; y < Const.tamanopantalla; y += Const.tamanobloque) {
+			for (x = 0; x < Const.tamanopantalla; x += Const.tamanobloque) {
+
+				g2d.setColor(Const.colorLab);
+				g2d.setStroke(new BasicStroke(2));
+
+				if ((Const.screendata[i] & 1) != 0) {
+					g2d.drawLine(x, y, x, y + Const.tamanobloque - 1);
+				}
+
+				if ((Const.screendata[i] & 2) != 0) {
+					g2d.drawLine(x, y, x + Const.tamanobloque - 1, y);
+				}
+
+				if ((Const.screendata[i] & 4) != 0) {
+					g2d.drawLine(x + Const.tamanobloque - 1, y, x + Const.tamanobloque - 1, y + Const.tamanobloque - 1);
+				}
+
+				if ((Const.screendata[i] & 8) != 0) {
+					g2d.drawLine(x, y + Const.tamanobloque - 1, x + Const.tamanobloque - 1, y + Const.tamanobloque - 1);
+				}
+
+				if ((Const.screendata[i] & 16) != 0) {
+
+					g2d.setColor(Const.newcolor);
+					g2d.fillRect(x + 11, y + 11, 2, 2);
+				}
+
+				i++;
+			}
+		}
+	}
+	
+	private void pintar(Graphics g) {
+
+		Graphics2D g2d1 = (Graphics2D) g;
+
+		g2d1.setColor(Color.black);
+		g2d1.fillRect(0, 0, Const.dimension.width, Const.dimension.height);
+
+		dibujarLaberinto(g2d1);
+
+
+		if (Const.inigame) {
+			jugar(g2d1);
+		} else {
+			if (Const.vidaspacman > 0) {
+				mostrarEnPantalla(g2d1);
+			} else {
+//Añadir
+				this.Inicio.dispose();
+			}
+		}
+
+		g2d1.drawImage(Const.i, 5, 5, this);
+		Toolkit.getDefaultToolkit().sync();
+		g2d1.dispose();
+	}
+
+	
+	private void cargarImagenes() {
+
+		Const.fant = new ImageIcon(getClass().getResource("/img/pacman/fant.gif")).getImage();
+		Const.pacman1 = new ImageIcon(getClass().getResource("/img/pacman/pacman1.gif")).getImage();
+		Const.pacman2arriba = new ImageIcon(getClass().getResource("/img/pacman/pacman2arriba.gif")).getImage();
+		Const.pacman3arriba = new ImageIcon(getClass().getResource("/img/pacman/pacman3arriba.gif")).getImage();
+		Const.pacman4arriba = new ImageIcon(getClass().getResource("/img/pacman/pacman4arriba.gif")).getImage();
+		Const.pacman2abajo = new ImageIcon(getClass().getResource("/img/pacman/pacman2abajo.gif")).getImage();
+		Const.pacman3abajo = new ImageIcon(getClass().getResource("/img/pacman/pacman3abajo.gif")).getImage();
+		Const.pacman4abajo = new ImageIcon(getClass().getResource("/img/pacman/pacman4abajo.gif")).getImage();
+		Const.pacman2izquierda = new ImageIcon(getClass().getResource("/img/pacman/pacman2izquierda.gif")).getImage();
+		Const.pacman3izquierda = new ImageIcon(getClass().getResource("/img/pacman/pacman3izquierda.gif")).getImage();
+		Const.pacman4izquierda = new ImageIcon(getClass().getResource("/img/pacman/pacman4izquierda.gif")).getImage();
+		Const.pacman2derecha = new ImageIcon(getClass().getResource("/img/pacman/pacman2derecha.gif")).getImage();
+		Const.pacman3derecha = new ImageIcon(getClass().getResource("/img/pacman/pacman3derecha.gif")).getImage();
+		Const.pacma4derecha = new ImageIcon(getClass().getResource("/img/pacman/pacman4derecha.gif")).getImage();
+
 	}
 	public int contarPuntos(int[][] tablero) {
 

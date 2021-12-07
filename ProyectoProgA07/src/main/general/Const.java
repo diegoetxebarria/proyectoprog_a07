@@ -6,16 +6,17 @@ import java.awt.Image;
 
 public class Const {
 	
+	static Image i;
 	static Color colorLab;
 	static Dimension dimension;
-	
 	static javax.swing.Timer timer;
 	
 	static String usuarioLogeado;
 	
-	static Image pacman1, pacman2arriba, pacman2izquierda, pacman2derecha, pacman2abajo;
+	static Image fant, pacman1, pacman2arriba, pacman2izquierda, pacman2derecha, pacman2abajo;
 	static Image pacman3arriba, pacman3abajo, pacman3izquierda, pacman3derecha;
 	static Image pacman4arriba, pacman4abajo, pacman4izquierda, pacma4derecha;
+	
 	
 	static int nivel = 1;
 	static int contNiv = 6;
@@ -26,6 +27,8 @@ public class Const {
 	static int vistadx, vistady;
 	static int resultado;
 	static int pacmananimpos = 0;
+	static int fantasmasN = 6;
+	static int velactual = 3;
 	
 	static int[] contadNiv;
 	static int[] dx;
@@ -39,11 +42,15 @@ public class Const {
 	static short[] screendata;
 	
 	static boolean muerteEnYa;
+	static boolean inigame = false;
 	
 	
 	final static int niveles[] = { 1, 2, 3, 4, 5 };
+	final static int velocidades[] = { 1, 2, 3, 4, 6, 8 };
+	final static Color newcolor = new Color(192, 192, 0);
 	final static int tamanobloque = 24;
 	final static int bloques = 15;
+	final static int tamanopantalla = bloques * tamanobloque;
 	final static int velMaxFant = 12;
 	final static int velocidadpacman = 6;
 
