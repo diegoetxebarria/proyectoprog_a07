@@ -106,6 +106,65 @@ public class Fantasma extends Figura {
 				this.setEmpezar(false);
 		}
 
-	}
+		switch (this.getDireccionMovimiento()) {
+		case 1: // derecha
+			if (tablero[this.getPosicion().y / tamanyoRed][this.getPosicion().x / tamanyoRed + 1] == 1
+					&& tablero[(this.getPosicion().y - 1) / tamanyoRed][this.getPosicion().x / tamanyoRed] == 1) {
+				this.setPared(2);
+				System.out.print("2");
+			} // derechaArriba
+			else if (tablero[this.getPosicion().y / tamanyoRed][this.getPosicion().x / tamanyoRed + 1] == 1
+					&& tablero[this.getPosicion().y / tamanyoRed + 1][this.getPosicion().x / tamanyoRed] == 1) {
+				this.setPared(3);
+				System.out.print("3");
+			} // derechaAbajo
+			else if (tablero[this.getPosicion().y / tamanyoRed][this.getPosicion().x / tamanyoRed + 1] == 1) {
+				this.setPared(1);
+				System.out.print("1");
+			} else
+				this.setPared(0);
+			break;
 
+		case 2: // izquierda
+			if (tablero[this.getPosicion().y / tamanyoRed][(this.getPosicion().x - 1) / tamanyoRed] == 1
+					&& tablero[(this.getPosicion().y - 1) / tamanyoRed][this.getPosicion().x / tamanyoRed] == 1)
+				this.setPared(4); // izquierdaArriba
+			else if (tablero[this.getPosicion().y / tamanyoRed][(this.getPosicion().x - 1) / tamanyoRed] == 1
+					&& tablero[this.getPosicion().y / tamanyoRed + 1][this.getPosicion().x / tamanyoRed] == 1)
+				this.setPared(5); // izquierdaAbajo
+			else if (tablero[this.getPosicion().y / tamanyoRed][(this.getPosicion().x - 1) / tamanyoRed] == 1)
+				this.setPared(1);
+			else
+				this.setPared(0);
+			break;
+
+		case 3: // arriba
+			if (tablero[(this.getPosicion().y - 1) / tamanyoRed][this.getPosicion().x / tamanyoRed] == 1
+					&& tablero[this.getPosicion().y / tamanyoRed][this.getPosicion().x / tamanyoRed + 1] == 1)
+				this.setPared(2); // arribaDerecha
+			else if (tablero[(this.getPosicion().y - 1) / tamanyoRed][this.getPosicion().x / tamanyoRed] == 1
+					&& tablero[this.getPosicion().y / tamanyoRed][(this.getPosicion().x - 1) / tamanyoRed] == 1)
+				this.setPared(4); // arribaIzquierda
+			else if (tablero[(this.getPosicion().y - 1) / tamanyoRed][this.getPosicion().x / tamanyoRed] == 1)
+				this.setPared(1);
+			else
+				this.setPared(0);
+			break;
+
+		case 4: // abajo
+			if (tablero[this.getPosicion().y / tamanyoRed + 1][this.getPosicion().x / tamanyoRed] == 1
+					&& tablero[this.getPosicion().y / tamanyoRed][this.getPosicion().x / tamanyoRed + 1] == 1)
+				this.setPared(3); // abajoDerecha
+			else if (tablero[this.getPosicion().y / tamanyoRed + 1][this.getPosicion().x / tamanyoRed] == 1
+					&& tablero[this.getPosicion().y / tamanyoRed][(this.getPosicion().x - 1) / tamanyoRed] == 1)
+				this.setPared(5);// abajoIzquierda
+			else if (tablero[this.getPosicion().y / tamanyoRed + 1][this.getPosicion().x / tamanyoRed] == 1)
+				this.setPared(1);
+			else
+				this.setPared(0);
+			break;
+		default:
+
+		}
+	}
 }
