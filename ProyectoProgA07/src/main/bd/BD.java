@@ -1,8 +1,5 @@
 package main.bd;
 
-import java.io.File;
-import java.io.FileReader;
-import java.io.IOException;
 import java.sql.*;
 import java.util.logging.*;
 
@@ -229,4 +226,19 @@ public class BD {
 	}
 	
 	//ME FALTA POR AÑADIR LOS METODOS PARA REALIZAR LOS SELECTS Y PARA GUARDAR LOS DATOS
+
+	public static Usuario usuarioSelect (Statement st, String usuario, String password) {
+		String sentenciaSQL = "";
+		Usuario usuarioOb = null;
+		try {
+			sentenciaSQL = "select * from usuario "
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		return null;
+		
+	}
+
+
+
 }
