@@ -225,19 +225,53 @@ public class BD {
 		
 	}
 	
+	
 	//ME FALTA POR AÑADIR LOS METODOS PARA REALIZAR LOS SELECTS Y PARA GUARDAR LOS DATOS
-
-	public static Usuario usuarioSelect (Statement st, String usuario, String password) {
-		String sentenciaSQL = "";
-		Usuario usuarioOb = null;
+	
+	public static Usuario usuarioSelect(Statement st, String usuario, String password) {
+		String sentSQL = "";
+		Usuario usuarioObj = null;
 		try {
-			sentenciaSQL = "select * from usuario "
-		} catch (Exception e) {
-			// TODO: handle exception
+			sentSQL = "select * from usuario where nick = '" + usuario + "' and password = '" + password + "'";
+			ResultSet rs = st.executeQuery(sentSQL);
+			if (rs != null && rs.next()) {
+				long fechaLong = rs.getLong("fechaNacimiento");
+				Date fecha = new Date(fechaLong);
+				Usuario.Genero genero = Usuario.Genero.valueOf(rs.getString("genero"));
+				usuarioObj = new Usuario(rs.getString("nick"), rs.getString("password"), fecha, genero);
+			}
+		} catch (SQLException e) {
+			log( "Error en BD\t" + sentSQL, e);
+			lastError = e;
+			e.printStackTrace();
+			return null;
 		}
-		return null;
-		
+		return usuarioObj;
 	}
+
+	public static int nivelselect(Statement st, Integer idJuego, String nick) {
+		String sentSQL = "";
+		Integer maxNivel = 1;
+		try {
+			sentSQL = "select maxNivel from nivel where idJuego = '" + idJuego + "' and nick = '" + nick + "'";
+			ResultSet rs = st.executeQuery(sentSQL);
+			if (rs != null && rs.next()) {
+				maxNivel = rs.getInt("maxNivel");
+
+			}
+		} catch (SQLException e) {
+			log("Error en BD\t" + sentSQL, e);
+			lastError = e;
+			e.printStackTrace();
+			return 1;
+		}
+		return maxNivel;
+
+	}
+
+	
+	
+
 
 
 
