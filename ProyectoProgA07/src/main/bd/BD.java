@@ -1,8 +1,10 @@
 package main.bd;
 
 import java.sql.*;
+import java.util.ArrayList;
 import java.util.logging.*;
 
+import main.general.Participa;
 import main.general.Usuario;
 
 public class BD {
@@ -267,6 +269,32 @@ public class BD {
 		}
 		return maxNivel;
 
+	}
+	
+	public static ArrayList<Participa> participacionSelect(Statement st, String nick, Integer idJuego) {
+		String sentSQL = "";
+		ArrayList<Participa> participaciones = new ArrayList<>();
+		Participa participacionObj = null;
+		try {
+			sentSQL = "select * from participacion " + "where nick = '" + nick + "' and idJuego = " + idJuego
+					+ " order by nivel desc";
+			ResultSet rs = st.executeQuery(sentSQL);
+			while (rs.next()) {
+				int idParticipacion = rs.getInt("idParticipacion");
+				long fechaLong = rs.getLong("fecha");
+				Date fecha = new Date(fechaLong);
+				int puntos = rs.getInt("puntuacion");
+				int nivel = rs.getInt("nivel");
+				participacionObj = new Participa(idParticipacion, nick, nivel, idJuego, puntos, fecha);
+				participaciones.add(participacionObj);
+			}
+		} catch (SQLException e) {
+			log( "Error en BD\t" + sentSQL, e);
+			lastError = e;
+			e.printStackTrace();
+			return null;
+		}
+		return participaciones;
 	}
 
 	
