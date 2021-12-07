@@ -4,20 +4,20 @@ package main.general;
 import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Font;
+import java.awt.FontMetrics;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Toolkit;
 import java.util.Date;
 
 import javax.swing.ImageIcon;
-
-import main.Ventanas.NivelPacman;
-import main.pacman.Constantes;
+import javax.swing.JPanel;
 
 
 
 
-public class Tablero {
+public class Tablero  extends JPanel {
 
 	Inicio inicio;
 
@@ -352,9 +352,9 @@ public class Tablero {
 			jugar(g2d1);
 		} else {
 			if (Const.vidaspacman > 0) {
-				mostrarEnPantalla(g2d1);
+				mostarPanr(g2d1);
 			} else {
-//Añadir
+				//Añadir
 				this.Inicio.dispose();
 			}
 		}
@@ -364,6 +364,24 @@ public class Tablero {
 		g2d1.dispose();
 	}
 
+	private void mostarPanr(Graphics2D g2d) {
+
+		g2d.setColor(new Color(236, 105, 100));
+		g2d.fillRect(50, Const.tamanopantalla / 2 - 30, Const.tamanopantalla - 100, 50);
+		g2d.setColor(Color.pink);
+		g2d.drawRect(50, Const.tamanopantalla / 2 - 30, Const.tamanopantalla - 100, 50);
+		g2d.drawString("PAUSA (P)", 90, 390);
+		g2d.drawString("CONTINUAR (C)", 165, 390);
+
+
+		String s = "Para comenzar toca la tecla espaciadora";
+		Font small = new Font("Helvetica", Font.BOLD, 12);
+		FontMetrics metr = this.getFontMetrics(small);
+
+		g2d.setColor(Color.white);
+		g2d.setFont(small);
+		g2d.drawString(s, (Const.tamanopantalla - metr.stringWidth(s)) / 2, Const.tamanopantalla / 2);
+	}
 	
 	private void cargarImagenes() {
 
