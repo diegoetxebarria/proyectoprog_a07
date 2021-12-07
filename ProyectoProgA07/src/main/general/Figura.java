@@ -23,8 +23,8 @@ public abstract class Figura {
 		return posicion;
 	}
 
-	public void setPosicion(Point posicion) {
-		this.posicion = posicion;
+	public void setPosicion(int xPos, int yPos) {
+		this.posicion = new Point(xPos, yPos);
 	}
 
 	public int getVelocidad() {
@@ -92,16 +92,14 @@ public abstract class Figura {
 	}
 
 	public void hayParedDelante(int[][] tablero, int tamanyoRed) {
-		 System.out.println(this.getDireccionMovimiento() + "; " +
-		 this.getDireccion() + "; " + this.getVelocidadX() + "; " +
-		 this.getVelocidadY() + "; " + this.getPosicion().x + "; " +
-		 this.getPosicion().y);
+		System.out.println(this.getDireccionMovimiento() + "; " + this.getDireccion() + "; " + this.getVelocidadX()
+				+ "; " + this.getVelocidadY() + "; " + this.getPosicion().x + "; " + this.getPosicion().y);
 
 		switch (this.getDireccionMovimiento()) {
 		case 1:// derecha
 			if (tablero[this.getPosicion().y / tamanyoRed][this.getPosicion().x / tamanyoRed + 1] == 1) {
 				this.setVelocidadX(0);
-				 this.setDireccionMovimiento(0);
+				this.setDireccionMovimiento(0);
 				if (this.getDireccion() == 1)
 					this.setDireccion(0);
 			}
@@ -109,7 +107,7 @@ public abstract class Figura {
 		case 3:// izquierda
 			if (tablero[this.getPosicion().y / tamanyoRed][(this.getPosicion().x - 1) / tamanyoRed] == 1) {
 				this.setVelocidadX(0);
-				 this.setDireccionMovimiento(0);
+				this.setDireccionMovimiento(0);
 				if (this.getDireccion() == 3)
 					this.setDireccion(0);
 			}
@@ -117,7 +115,7 @@ public abstract class Figura {
 		case 2:// arriba
 			if (tablero[(this.getPosicion().y - 1) / tamanyoRed][this.getPosicion().x / tamanyoRed] == 1) {
 				this.setVelocidadY(0);
-				 this.setDireccionMovimiento(0);
+				this.setDireccionMovimiento(0);
 				if (this.getDireccion() == 2)
 					this.setDireccion(0);
 			}
@@ -125,7 +123,7 @@ public abstract class Figura {
 		case 4:// abajo
 			if (tablero[this.getPosicion().y / tamanyoRed + 1][this.getPosicion().x / tamanyoRed] == 1) {
 				this.setVelocidadY(0);
-				 this.setDireccionMovimiento(0);
+				this.setDireccionMovimiento(0);
 				if (this.getDireccion() == 4)
 					this.setDireccion(0);
 			}
@@ -134,10 +132,8 @@ public abstract class Figura {
 			break;
 		}
 
-		 System.out.println(this.getDireccionMovimiento() + "; " +
-		 this.getDireccion() + "; " + this.getVelocidadX() + "; " +
-		 this.getVelocidadY() + "; " + this.getPosicion().x + "; " +
-		 this.getPosicion().y);
+		System.out.println(this.getDireccionMovimiento() + "; " + this.getDireccion() + "; " + this.getVelocidadX()
+				+ "; " + this.getVelocidadY() + "; " + this.getPosicion().x + "; " + this.getPosicion().y);
 
 		switch (this.getDireccion()) {
 		case 1:// derecha
@@ -168,14 +164,10 @@ public abstract class Figura {
 			break;
 		}
 
-		 System.out.println(this.getDireccionMovimiento() + "; " +
-		 this.getDireccion() + "; " + this.getVelocidadX() + "; " +
-		 this.getVelocidadY() + "; " + this.getPosicion().x + "; " +
-		 this.getPosicion().y);
-		 
+		System.out.println(this.getDireccionMovimiento() + "; " + this.getDireccion() + "; " + this.getVelocidadX()
+				+ "; " + this.getVelocidadY() + "; " + this.getPosicion().x + "; " + this.getPosicion().y);
 
-		this.setPosicion(this.getPosicion().x + this.getVelocidadX(),
-				this.getPosicion().y + this.getVelocidadY());
+		this.setPosicion(this.getPosicion().x + this.getVelocidadX(), this.getPosicion().y + this.getVelocidadY());
 	}
 
 	// se cambia la direccion
@@ -210,11 +202,8 @@ public abstract class Figura {
 		}
 	}
 
-	public abstract void actualizacionDireccion(int x); 
+	public abstract void actualizacionDireccion(int x);
 
 	public abstract void reset(int tamanyoRed);
 
-	
 }
-	
-

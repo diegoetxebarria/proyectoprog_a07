@@ -1,23 +1,21 @@
 package main.general;
 
-
 //import main.bd.BD;
 
 public class Tablero {
-	
+
 	Inicio inicio;
 
 	public Tablero(String usuario) {
 		Const.usuarioLogeado = usuario;
 	}
-	
+
 	public static void main(String[] args) {
-		//Lanzar Base de datos
-		//BD.initBD();
-		//Tablero tablero = new Tablero("Markel");
+		// Lanzar Base de datos
+		// BD.initBD();
+		// Tablero tablero = new Tablero("Markel");
 	}
-	
-	
+
 	public int[] colorFondo = { 0, 0, 0 };
 	public int[] colorPuntos = { 255, 255, 255 };
 	public int[] colorParedes = { 24, 30, 182 };
@@ -53,21 +51,22 @@ public class Tablero {
 			{ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 }
 
 	};
-	
+
 	public Tablero(Tablero tablero, int nivel) {
-		
+
 		this.inicio = inicio;
-		
+
 	}
-	private void setNivel( int nivel) {
-		if(nivel< 1|| nivel>5) {
+
+	private void setNivel(int nivel) {
+		if (nivel < 1 || nivel > 5) {
 			throw new IllegalArgumentException("El valor del nivel tiene que estar entre 1 y 5");
 		}
-		for (int i = 0; i < Const.contNiv; i ++) {
-			Const.contadNiv[i] = Const.niveles[nivel-1];
+		for (int i = 0; i < Const.contNiv; i++) {
+			Const.contadNiv[i] = Const.niveles[nivel - 1];
 		}
 	}
-	
+
 	public void seleccionNivel() {
 		setNivel(Const.nivel);
 	}
