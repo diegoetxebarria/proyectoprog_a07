@@ -2,6 +2,7 @@ package main.general;
 
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Image;
 
 public class Const {
 	
@@ -12,6 +13,10 @@ public class Const {
 	
 	static String usuarioLogeado;
 	
+	static Image pacman1, pacman2arriba, pacman2izquierda, pacman2derecha, pacman2abajo;
+	static Image pacman3arriba, pacman3abajo, pacman3izquierda, pacman3derecha;
+	static Image pacman4arriba, pacman4abajo, pacman4izquierda, pacma4derecha;
+	
 	static int nivel = 1;
 	static int contNiv = 6;
 	static int vidaspacman = 3; 
@@ -20,6 +25,7 @@ public class Const {
 	static int exdx, exdy;
 	static int vistadx, vistady;
 	static int resultado;
+	static int pacmananimpos = 0;
 	
 	static int[] contadNiv;
 	static int[] dx;
