@@ -164,7 +164,52 @@ public class Fantasma extends Figura {
 				this.setPared(0);
 			break;
 		default:
-
 		}
+	}
+
+	// randomiza direccion de movimiento
+	public void updateDireccion(Point PacPosicion) {
+		Random ran = new Random();
+		if (this.getPared() == 1 && !this.getEmpezar()) {
+			if (this.getQuadrante() == 1)
+				this.setDireccion(ran.nextInt(2) * 3 + 1);
+			if (this.getQuadrante() == 2)
+				this.setDireccion(ran.nextInt(2) + 1);
+			if (this.getQuadrante() == 3)
+				this.setDireccion(ran.nextInt(2) + 2);
+			if (this.getQuadrante() == 4)
+				this.setDireccion(ran.nextInt(2) + 3);
+		} else if (this.getPared() == 2 && !this.getEmpezar() && this.getQuadrante() == 1)
+			this.setDireccion(4);
+		else if (this.getPared() == 2 && !this.getEmpezar() && this.getQuadrante() == 2)
+			this.setDireccion(ran.nextInt(2) + 3);
+		else if (this.getPared() == 2 && !this.getEmpezar() && this.getQuadrante() == 3)
+			this.setDireccion(3);
+		else if (this.getPared() == 2 && !this.getEmpezar() && this.getQuadrante() == 4)
+			this.setDireccion(ran.nextInt(2) + 3);
+		else if (this.getPared() == 3 && !this.getEmpezar() && this.getQuadrante() == 1)
+			this.setDireccion(ran.nextInt(2) + 2);
+		else if (this.getPared() == 3 && !this.getEmpezar() && this.getQuadrante() == 2)
+			this.setDireccion(2);
+		else if (this.getPared() == 3 && !this.getEmpezar() && this.getQuadrante() == 3)
+			this.setDireccion(ran.nextInt(2) + 2);
+		else if (this.getPared() == 3 && !this.getEmpezar() && this.getQuadrante() == 4)
+			this.setDireccion(3);
+		else if (this.getPared() == 4 && !this.getEmpezar() && this.getQuadrante() == 1)
+			this.setDireccion(ran.nextInt(2) * 3 + 1);
+		else if (this.getPared() == 4 && !this.getEmpezar() && this.getQuadrante() == 2)
+			this.setDireccion(1);
+		else if (this.getPared() == 4 && !this.getEmpezar() && this.getQuadrante() == 3)
+			this.setDireccion(ran.nextInt(2) * 3 + 1);
+		else if (this.getPared() == 4 && !this.getEmpezar() && this.getQuadrante() == 4)
+			this.setDireccion(4);
+		else if (this.getPared() == 5 && !this.getEmpezar() && this.getQuadrante() == 1)
+			this.setDireccion(1);
+		else if (this.getPared() == 5 && !this.getEmpezar() && this.getQuadrante() == 2)
+			this.setDireccion(ran.nextInt(2) + 1);
+		else if (this.getPared() == 5 && !this.getEmpezar() && this.getQuadrante() == 3)
+			this.setDireccion(2);
+		else if (this.getPared() == 5 && !this.getEmpezar() && this.getQuadrante() == 4)
+			this.setDireccion(ran.nextInt(2) + 1);
 	}
 }
