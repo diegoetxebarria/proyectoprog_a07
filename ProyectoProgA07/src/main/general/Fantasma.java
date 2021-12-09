@@ -203,13 +203,5 @@ public class Fantasma extends Figura {
 			this.setDireccion(ran.nextInt(2) * 3 + 1);
 		else if (this.getPared() == 4 && !this.getEmpezar() && this.getQuadrante() == 4)
 			this.setDireccion(4);
-		else if (this.getPared() == 5 && !this.getEmpezar() && this.getQuadrante() == 1)
-			this.setDireccion(1);
-		else if (this.getPared() == 5 && !this.getEmpezar() && this.getQuadrante() == 2)
-			this.setDireccion(ran.nextInt(2) + 1);
-		else if (this.getPared() == 5 && !this.getEmpezar() && this.getQuadrante() == 3)
-			this.setDireccion(2);
-		else if (this.getPared() == 5 && !this.getEmpezar() && this.getQuadrante() == 4)
-			this.setDireccion(ran.nextInt(2) + 1);
 	}
 }
