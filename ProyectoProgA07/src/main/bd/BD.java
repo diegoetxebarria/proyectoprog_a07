@@ -4,8 +4,8 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.logging.*;
 
-import main.general.Participa;
-import main.general.Usuario;
+import main.mod.Participa;
+import main.mod.Usuario;
 
 public class BD {
 
@@ -204,15 +204,17 @@ public class BD {
 			return false;
 		}
 	}
-	
-	//metodo que nos servira para insertar los datos del usuario con el juego al que ha jugado con el nivel, puntuacio.....
-	public static boolean participacionInsert(Statement st, String nick, int idJuego, int nivel, int puntuacion,long fecha) {
+
+	// metodo que nos servira para insertar los datos del usuario con el juego al
+	// que ha jugado con el nivel, puntuacio.....
+	public static boolean participacionInsert(Statement st, String nick, int idJuego, int nivel, int puntuacion,
+			long fecha) {
 		String sentSQL = "";
 		try {
 			sentSQL = "insert into participacion (nick, idJuego, nivel, puntuacion, fecha) values('" + nick + "',"
 					+ idJuego + "," + nivel + ", " + puntuacion + ", " + fecha + ")";
 			int val = st.executeUpdate(sentSQL);
-			log( "BD añadida " + val + " fila\t" + sentSQL, null);
+			log("BD añadida " + val + " fila\t" + sentSQL, null);
 			if (val != 1) { // Se tendra que añadir, sino dara error
 				log("Error en insert de BD\t" + sentSQL, null);
 				return false;
@@ -224,12 +226,12 @@ public class BD {
 			e.printStackTrace();
 			return false;
 		}
-		
+
 	}
-	
-	
-	//ME FALTA POR AÑADIR LOS METODOS PARA REALIZAR LOS SELECTS Y PARA GUARDAR LOS DATOS
-	
+
+	// ME FALTA POR AÑADIR LOS METODOS PARA REALIZAR LOS SELECTS Y PARA GUARDAR LOS
+	// DATOS
+
 	public static Usuario usuarioSelect(Statement st, String usuario, String password) {
 		String sentSQL = "";
 		Usuario usuarioObj = null;
@@ -243,7 +245,7 @@ public class BD {
 				usuarioObj = new Usuario(rs.getString("nick"), rs.getString("password"), fecha, genero);
 			}
 		} catch (SQLException e) {
-			log( "Error en BD\t" + sentSQL, e);
+			log("Error en BD\t" + sentSQL, e);
 			lastError = e;
 			e.printStackTrace();
 			return null;
@@ -270,7 +272,7 @@ public class BD {
 		return maxNivel;
 
 	}
-	
+
 	public static ArrayList<Participa> participacionSelect(Statement st, String nick, Integer idJuego) {
 		String sentSQL = "";
 		ArrayList<Participa> participaciones = new ArrayList<>();
@@ -289,18 +291,12 @@ public class BD {
 				participaciones.add(participacionObj);
 			}
 		} catch (SQLException e) {
-			log( "Error en BD\t" + sentSQL, e);
+			log("Error en BD\t" + sentSQL, e);
 			lastError = e;
 			e.printStackTrace();
 			return null;
 		}
 		return participaciones;
 	}
-
-	
-	
-
-
-
 
 }

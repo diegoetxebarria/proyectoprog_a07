@@ -6,9 +6,9 @@ import java.awt.Image;
 
 public class Const {
 	
-	static Image i;
-	static Color colorLab;
-	static Dimension dimension;
+	static Image i; //listo
+	static Color colorLab; //listo
+	static Dimension dimension; //
 	static javax.swing.Timer timer;
 	
 	static String usuarioLogeado;
@@ -29,6 +29,8 @@ public class Const {
 	static int pacmananimpos = 0;
 	static int fantasmasN = 6;
 	static int velactual = 3;
+	
+	
 	
 	static int[] contadNiv;
 	static int[] dx;
