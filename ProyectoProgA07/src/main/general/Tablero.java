@@ -1,6 +1,5 @@
 package main.general;
 
-
 import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Dimension;
@@ -14,10 +13,7 @@ import java.util.Date;
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 
-
-
-
-public class Tablero  extends JPanel {
+public class Tablero extends JPanel {
 
 	Inicio inicio;
 
@@ -85,9 +81,7 @@ public class Tablero  extends JPanel {
 	public void seleccionNivel() {
 		setNivel(Const.nivel);
 	}
-	
-	
-	
+
 	private void iniciarVariable() {
 		Const.colorLab = new Color(5, 100, 5);
 		Const.dimension = new Dimension(400, 400);
@@ -101,7 +95,7 @@ public class Tablero  extends JPanel {
 
 		Const.timer.start();
 	}
-	
+
 	private void jugar(Graphics2D g2d) {
 		if (Const.muerteEnYa) {
 			asesinato();
@@ -109,12 +103,12 @@ public class Tablero  extends JPanel {
 
 			moverPacman();
 			pintarPacman(g2d);
-			//Faltan metodos 
+			// Faltan metodos
 		}
 	}
-	
-	//Metodo para mover le pacman
-	private void moverPacman() { 
+
+	// Metodo para mover le pacman
+	private void moverPacman() {
 
 		int pos;
 		short ch;
@@ -137,8 +131,10 @@ public class Tablero  extends JPanel {
 			}
 
 			if (Const.exdx != 0 || Const.exdy != 0) {
-				if (!((Const.exdx == -1 && Const.exdy == 0 && (ch & 1) != 0) || (Const.exdx == 1 && Const.exdy == 0 && (ch & 4) != 0)
-						|| (Const.exdx == 0 && Const.exdy == -1 && (ch & 2) != 0) || (Const.exdx == 0 && Const.exdy == 1 && (ch & 8) != 0))) {
+				if (!((Const.exdx == -1 && Const.exdy == 0 && (ch & 1) != 0)
+						|| (Const.exdx == 1 && Const.exdy == 0 && (ch & 4) != 0)
+						|| (Const.exdx == 0 && Const.exdy == -1 && (ch & 2) != 0)
+						|| (Const.exdx == 0 && Const.exdy == 1 && (ch & 8) != 0))) {
 					Const.pacmandx = Const.exdx;
 					Const.pacmandy = Const.exdy;
 					Const.vistadx = Const.pacmandx;
@@ -146,7 +142,8 @@ public class Tablero  extends JPanel {
 				}
 			}
 
-			if ((Const.pacmandx == -1 && Const.pacmandy == 0 && (ch & 1) != 0) || (Const.pacmandx == 1 && Const.pacmandy == 0 && (ch & 4) != 0)
+			if ((Const.pacmandx == -1 && Const.pacmandy == 0 && (ch & 1) != 0)
+					|| (Const.pacmandx == 1 && Const.pacmandy == 0 && (ch & 4) != 0)
 					|| (Const.pacmandx == 0 && Const.pacmandy == -1 && (ch & 2) != 0)
 					|| (Const.pacmandx == 0 && Const.pacmandy == 1 && (ch & 8) != 0)) {
 				Const.pacmandx = 0;
@@ -157,8 +154,7 @@ public class Tablero  extends JPanel {
 		Const.pacmanx = Const.pacmanx + Const.velocidadpacman * Const.pacmandx;
 		Const.pacmany = Const.pacmany + Const.velocidadpacman * Const.pacmandy;
 	}
-	
-	
+
 	private void asesinato() {// Cuando lo asesinen los fantasmas
 
 		Const.vidaspacman--;
@@ -166,12 +162,12 @@ public class Tablero  extends JPanel {
 		if (Const.vidaspacman == 0) {
 
 			Date fecha = new Date();
-			//Guardar datos falta meter
+			// Guardar datos falta meter
 		}
 
 		continuarNivel();
 	}
-	
+
 	private void pintarPacman(Graphics2D g2d) { // Pintar el pacman
 
 		if (Const.vistadx == -1) {
@@ -186,7 +182,6 @@ public class Tablero  extends JPanel {
 
 		}
 	}
-	
 
 	private void continuarNivel() {
 		short i;
@@ -208,7 +203,6 @@ public class Tablero  extends JPanel {
 			}
 
 			Const.fantvel[i] = Const.velocidades[random];
-	
 
 		}
 
@@ -222,8 +216,6 @@ public class Tablero  extends JPanel {
 		Const.vistady = 0;
 		Const.muerteEnYa = false;
 	}
-	
-	
 
 	private void pintarPacmanArriba(Graphics2D g2d1) {
 
@@ -277,8 +269,8 @@ public class Tablero  extends JPanel {
 		default:
 			g2d1.drawImage(Const.pacman1, Const.pacmanx + 1, Const.pacmany + 1, this);
 			break;
-		} 
-		
+		}
+
 	}
 
 	private void pintarPacmanIzquierda(Graphics2D g2d1) {
@@ -297,9 +289,9 @@ public class Tablero  extends JPanel {
 			g2d1.drawImage(Const.pacman1, Const.pacmanx + 1, Const.pacmany + 1, this);
 			break;
 		}
-	
+
 	}
-	
+
 	private void dibujarLaberinto(Graphics2D g2d) {
 
 		short i = 0;
@@ -337,7 +329,7 @@ public class Tablero  extends JPanel {
 			}
 		}
 	}
-	
+
 	private void pintar(Graphics g) {
 
 		Graphics2D g2d1 = (Graphics2D) g;
@@ -347,14 +339,13 @@ public class Tablero  extends JPanel {
 
 		dibujarLaberinto(g2d1);
 
-
 		if (Const.inigame) {
 			jugar(g2d1);
 		} else {
 			if (Const.vidaspacman > 0) {
 				mostarPanr(g2d1);
 			} else {
-				//Añadir
+				// Añadir
 				this.Inicio.dispose();
 			}
 		}
@@ -373,7 +364,6 @@ public class Tablero  extends JPanel {
 		g2d.drawString("PAUSA (P)", 90, 390);
 		g2d.drawString("CONTINUAR (C)", 165, 390);
 
-
 		String s = "Para comenzar toca la tecla espaciadora";
 		Font small = new Font("Helvetica", Font.BOLD, 12);
 		FontMetrics metr = this.getFontMetrics(small);
@@ -382,7 +372,7 @@ public class Tablero  extends JPanel {
 		g2d.setFont(small);
 		g2d.drawString(s, (Const.tamanopantalla - metr.stringWidth(s)) / 2, Const.tamanopantalla / 2);
 	}
-	
+
 	private void cargarImagenes() {
 
 		Const.fant = new ImageIcon(getClass().getResource("/img/pacman/fant.gif")).getImage();
@@ -401,6 +391,7 @@ public class Tablero  extends JPanel {
 		Const.pacma4derecha = new ImageIcon(getClass().getResource("/img/pacman/pacman4derecha.gif")).getImage();
 
 	}
+
 	public int contarPuntos(int[][] tablero) {
 
 		int cantidadPuntos = 0;
