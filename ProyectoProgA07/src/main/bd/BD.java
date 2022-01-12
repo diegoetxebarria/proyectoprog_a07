@@ -8,8 +8,6 @@ import main.mod.Participa;
 import main.mod.Usuario;
 
 public class BD {
-	
-	
 
 	private static Exception lastError = null; // Nos informa del ultimo errror sql ocurrido
 
