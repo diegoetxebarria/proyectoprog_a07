@@ -2,10 +2,16 @@ package main.ventanas;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.Connection;
+import java.sql.Statement;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
+import javax.swing.ButtonGroup;
 import javax.swing.ComboBoxModel;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
@@ -15,8 +21,11 @@ import javax.swing.JLabel;
 import javax.swing.JPasswordField;
 import javax.swing.JRadioButton;
 import javax.swing.JTextField;
+import javax.swing.UIManager;
 
-
+import main.ventanas.VentanaRegistro;
+import main.bd.BD;
+import main.mod.Usuario;
 
 public class VentanaRegistro extends JFrame {
 
@@ -26,7 +35,10 @@ public class VentanaRegistro extends JFrame {
 	private JComboBox<Object> cbDia;
 	private JComboBox<String> comboBox_mes;
 	private JComboBox<Object> cbAnyo;
-	String[] meses = { "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre" };
+	String[] meses = { "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre",
+			"Octubre", "Noviembre", "Diciembre" };
+	JRadioButton[] rdbtnArray = new JRadioButton[3];
+	Usuario.Genero[] generos = { Usuario.Genero.HOMBRE, Usuario.Genero.MUJER, Usuario.Genero.NO_BINAR };
 
 	public VentanaRegistro() {
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -40,9 +52,9 @@ public class VentanaRegistro extends JFrame {
 		lblNombre.setBounds(72, 31, 61, 16);
 		getContentPane().add(lblNombre);
 
-		JLabel lblContrasea = new JLabel("Contraseña");
-		lblContrasea.setBounds(72, 72, 86, 16);
-		getContentPane().add(lblContrasea);
+		JLabel lblContraseina = new JLabel("Contraseña");
+		lblContraseina.setBounds(72, 72, 86, 16);
+		getContentPane().add(lblContraseina);
 
 		passwordField = new JPasswordField();
 		passwordField.setBounds(156, 70, 152, 21);
@@ -51,10 +63,22 @@ public class VentanaRegistro extends JFrame {
 		JRadioButton rdbtnHombre = new JRadioButton("Hombre");
 		rdbtnHombre.setBounds(201, 189, 86, 23);
 		getContentPane().add(rdbtnHombre);
+		rdbtnArray[0] = rdbtnHombre;
 
 		JRadioButton rdbtnMujer = new JRadioButton("Mujer");
 		rdbtnMujer.setBounds(361, 189, 78, 23);
 		getContentPane().add(rdbtnMujer);
+		rdbtnArray[1] = rdbtnMujer;
+		
+		JRadioButton rdbtnNoBinario = new JRadioButton("No Binario");
+		rdbtnNoBinario.setBounds(385, 189, 147, 23);
+		getContentPane().add(rdbtnNoBinario);
+		rdbtnArray[2] = rdbtnNoBinario;
+		
+		ButtonGroup bg = new ButtonGroup();
+		bg.add(rdbtnHombre);
+		bg.add(rdbtnMujer);
+		bg.add(rdbtnNoBinario);
 
 		JLabel lblFechaDeNacimiento = new JLabel("Fecha de nacimiento");
 		lblFechaDeNacimiento.setBounds(72, 110, 173, 16);
@@ -64,10 +88,53 @@ public class VentanaRegistro extends JFrame {
 		btnAceptar.setBounds(156, 247, 117, 29);
 		getContentPane().add(btnAceptar);
 
-//		btnAceptar.addActionListener(new ActionListener() {
-//			//Aqui añadiremos los datos a la base de datos
-//		
-//		});
+		btnAceptar.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				Thread t = new Thread() {
+					public void run() {
+						Connection con = BD.initBD(VentanaLogin.NOMBRE_BD);
+						Statement st = BD.creacionTablas(con);
+						String mesSelecionado = (String) comboBox_mes.getSelectedItem();
+						int numMes = 0;
+						for (int i = 0; i < meses.length; i++) {
+							if (meses[i].equals(mesSelecionado)) {
+								numMes = i + 1;
+							}
+						}
+						int dia = (int) cbDia.getSelectedItem();
+						int year = (int) cbAnyo.getSelectedItem();
+						SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+						Date fecha = null;
+						try {
+							fecha = sdf.parse(year + "-" + numMes + "-" + dia);
+						} catch (ParseException e) {
+							e.printStackTrace();
+						}
+
+						String usuarioNick = textField_nombre.getText();
+						String password = new String(passwordField.getPassword());
+						Usuario.Genero genero = null;
+						for (int i = 0; i < rdbtnArray.length; i++) {
+							if (rdbtnArray[i].isSelected()) {
+								genero = generos[i];
+							}
+						}
+
+						Usuario user = new Usuario(usuarioNick, password, fecha, genero);
+						boolean nuevoUsuario = BD.usuarioInsert(st, user);
+						if (!nuevoUsuario)
+							// Usuario no insertado
+							System.out.println("Error.");
+						new VentanaLogin().setVisible(true);
+						dispose();
+					}
+				};
+				t.start();
+				System.out.println("Aceptar");
+			}
+		});
+
 
 		JButton btnCancelar = new JButton("Cancelar");
 		btnCancelar.setBounds(342, 247, 117, 29);
@@ -133,9 +200,13 @@ public class VentanaRegistro extends JFrame {
 	}
 
 	public static void main(String[] args) {
+		BD.initData();
+		try { 
+			UIManager.setLookAndFeel("javax.swing.plaf.nimbus.NimbusLookAndFeel");
+		} catch (Exception e) {
+		} 
 		VentanaRegistro v = new VentanaRegistro();
 		v.setVisible(true);
 
 	}
 }
-
