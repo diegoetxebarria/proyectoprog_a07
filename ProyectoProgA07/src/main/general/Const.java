@@ -19,6 +19,12 @@ public class Const {
 	static Image fant, pacman1, pacman2arriba, pacman2izquierda, pacman2derecha, pacman2abajo;
 	static Image pacman3arriba, pacman3abajo, pacman3izquierda, pacman3derecha;
 	static Image pacman4arriba, pacman4abajo, pacman4izquierda, pacma4derecha;
+	static Image fresa;
+	static Image melon;
+	static Image cereza;
+	static Image naranja;
+	static Image manzana;
+	
 	
 	
 	static int nivel = 1;

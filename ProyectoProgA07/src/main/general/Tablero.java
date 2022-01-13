@@ -25,7 +25,6 @@ import main.bd.BD;
 import main.musica.Audio;
 import main.musica.SoundJLayer;
 
-
 public class Tablero extends JPanel implements ActionListener {
 
 	/**
@@ -74,7 +73,7 @@ public class Tablero extends JPanel implements ActionListener {
 		for (int i = 0; i < Const.fantasmasN; i++) {
 			Const.fantvel[i] = Const.velocidades[nivel - 1];
 		}
-	
+
 	}
 
 	public void seleccionNivel() {
@@ -129,7 +128,7 @@ public class Tablero extends JPanel implements ActionListener {
 		}
 	}
 
-	// Metodo para mover le pacman
+	// Metodo para mover pacman
 	private void moverPacman() {
 
 		int pos;
@@ -626,112 +625,116 @@ public class Tablero extends JPanel implements ActionListener {
 		Const.pacman2derecha = new ImageIcon(getClass().getResource("/img/pacman/pacman2derecha.gif")).getImage();
 		Const.pacman3derecha = new ImageIcon(getClass().getResource("/img/pacman/pacman3derecha.gif")).getImage();
 		Const.pacma4derecha = new ImageIcon(getClass().getResource("/img/pacman/pacman4derecha.gif")).getImage();
+		Const.fresa = new ImageIcon(getClass().getResource("/img/imagenes/fresa.png")).getImage();
+		Const.manzana = new ImageIcon(getClass().getResource("/img/imagenes/manzana.png")).getImage();
+		Const.melon = new ImageIcon(getClass().getResource("/img/imagenes/melon.png")).getImage();
+		Const.naranja = new ImageIcon(getClass().getResource("/img/imagenes/naranja.png")).getImage();
+		Const.cereza = new ImageIcon(getClass().getResource("/img/imagenes/cereza.png")).getImage();
 
 	}
+	
+	public int contarPuntos(int[][] tablero) {
 
-//	public int contarPuntos(int[][] tablero) {
-//
-//		int cantidadPuntos = 0;
-//
-//		for (int filas = 0; filas < tablero.length; filas++) {
-//
-//			for (int columnas = 0; columnas < tablero[filas].length; columnas++) {
-//
-//				if (tablero[filas][columnas] == 2) {
-//
-//					cantidadPuntos++;
-//				}
-//			}
-//		}
-//
-//		return cantidadPuntos;
-//	}
-//
-//	public int contarCerezas(int[][] tablero) {
-//		int cantidadCerezas = 0;
-//
-//		for (int filas = 0; filas < tablero.length; filas++) {
-//
-//			for (int columnas = 0; columnas < tablero[filas].length; columnas++) {
-//
-//				if (tablero[filas][columnas] == 5) {
-//
-//					cantidadCerezas++;
-//
-//				}
-//			}
-//		}
-//		return cantidadCerezas;
-//	}
-//
-//	public int contarFresas(int[][] tablero) {
-//		int cantidadFresas = 0;
-//
-//		for (int filas = 0; filas < tablero.length; filas++) {
-//
-//			for (int columnas = 0; columnas < tablero[filas].length; columnas++) {
-//
-//				if (tablero[filas][columnas] == 5) {
-//
-//					cantidadFresas++;
-//
-//				}
-//			}
-//		}
-//		return cantidadFresas;
-//	}
-//
-//	public int contarNaranjas(int[][] tablero) {
-//		int cantidadNaranjas = 0;
-//
-//		for (int filas = 0; filas < tablero.length; filas++) {
-//
-//			for (int columnas = 0; columnas < tablero[filas].length; columnas++) {
-//
-//				if (tablero[filas][columnas] == 5) {
-//
-//					cantidadNaranjas++;
-//
-//				}
-//			}
-//		}
-//		return cantidadNaranjas;
-//	}
+		int cantidadPuntos = 0;
 
-//	public int contarMelones(int[][] tablero) {
-//		int cantidadMelones = 0;
-//
-//		for (int filas = 0; filas < tablero.length; filas++) {
-//
-//			for (int columnas = 0; columnas < tablero[filas].length; columnas++) {
-//
-//				if (tablero[filas][columnas] == 5) {
-//
-//					cantidadMelones++;
-//
-//				}
-//			}
-//		}
-//		return cantidadMelones;
-//	}
+		for (int filas = 0; filas < tablero.length; filas++) {
 
-//	public int contarManzanas(int[][] tablero) {
-//		int cantidadManzanas = 0;
-//
-//		for (int filas = 0; filas < tablero.length; filas++) {
-//
-//			for (int columnas = 0; columnas < tablero[filas].length; columnas++) {
-//
-//				if (tablero[filas][columnas] == 5) {
-//
-//					cantidadManzanas++;
-//
-//				}
-//			}
-//		}
-//		return cantidadManzanas;
-//	}
+			for (int columnas = 0; columnas < tablero[filas].length; columnas++) {
 
+				if (tablero[filas][columnas] == 2) {
+
+					cantidadPuntos++;
+				}
+			}
+	}
+
+		return cantidadPuntos;
+}
+
+	public int contarCerezas(int[][] tablero) {
+		int cantidadCerezas = 0;
+
+		for (int filas = 0; filas < tablero.length; filas++) {
+
+			for (int columnas = 0; columnas < tablero[filas].length; columnas++) {
+
+				if (tablero[filas][columnas] == 5) {
+
+					cantidadCerezas++;
+
+			}
+			}
+		}
+		return cantidadCerezas;
+	}
+
+	public int contarFresas(int[][] tablero) {
+		int cantidadFresas = 0;
+
+		for (int filas = 0; filas < tablero.length; filas++) {
+
+			for (int columnas = 0; columnas < tablero[filas].length; columnas++) {
+
+				if (tablero[filas][columnas] == 5) {
+
+					cantidadFresas++;
+
+				}
+			}
+		}
+		return cantidadFresas;
+	}
+
+	public int contarNaranjas(int[][] tablero) {
+		int cantidadNaranjas = 0;
+
+		for (int filas = 0; filas < tablero.length; filas++) {
+
+			for (int columnas = 0; columnas < tablero[filas].length; columnas++) {
+
+				if (tablero[filas][columnas] == 5) {
+
+					cantidadNaranjas++;
+
+				}
+			}
+		}
+		return cantidadNaranjas;
+	}
+
+	public int contarMelones(int[][] tablero) {
+		int cantidadMelones = 0;
+
+		for (int filas = 0; filas < tablero.length; filas++) {
+
+			for (int columnas = 0; columnas < tablero[filas].length; columnas++) {
+
+				if (tablero[filas][columnas] == 5) {
+
+					cantidadMelones++;
+
+				}
+			}
+		}
+		return cantidadMelones;
+	}
+
+	public int contarManzanas(int[][] tablero) {
+		int cantidadManzanas = 0;
+
+		for (int filas = 0; filas < tablero.length; filas++) {
+
+			for (int columnas = 0; columnas < tablero[filas].length; columnas++) {
+
+				if (tablero[filas][columnas] == 5) {
+
+					cantidadManzanas++;
+
+				}
+			}
+		}
+		return cantidadManzanas;
+	}
 
 	public void hiloMusica(URL recurso) {
 		Audio.lanzaAudioEnHilo(recurso);
@@ -739,9 +742,15 @@ public class Tablero extends JPanel implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
-		// TODO Auto-generated method stub
 		repaint();
 
 	}
 
+	public void jugarA() {
+
+	}
+
+	public void frutaComida() {
+		
+	}
 }
