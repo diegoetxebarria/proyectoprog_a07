@@ -1,19 +1,12 @@
 package main.mod;
 
-public class Juego {
+import java.util.Date;
 
-	Integer id;
+public interface Juego {
 	
-	public Juego(Integer id) {
-		this.id = id;
-	}
+	public void jugar();
+	public void setNivel(int level);
+	public void guardarPuntuacion(String nick, Date fecha, int nivel, int puntuacion);
+	public void guardarNuevoMaxNivel(Integer idJuego, Integer nivel, String nick);
 
-	public Integer getId() {
-		return id;
-	}
-
-	public void setId(Integer id) {
-		this.id = id;
-	}
-	
 }
