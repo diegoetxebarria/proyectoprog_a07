@@ -61,12 +61,12 @@ public class VentanaRegistro extends JFrame {
 		getContentPane().add(passwordField);
 
 		JRadioButton rdbtnHombre = new JRadioButton("Hombre");
-		rdbtnHombre.setBounds(201, 189, 86, 23);
+		rdbtnHombre.setBounds(104, 189, 86, 23);
 		getContentPane().add(rdbtnHombre);
 		rdbtnArray[0] = rdbtnHombre;
 
 		JRadioButton rdbtnMujer = new JRadioButton("Mujer");
-		rdbtnMujer.setBounds(361, 189, 78, 23);
+		rdbtnMujer.setBounds(249, 189, 78, 23);
 		getContentPane().add(rdbtnMujer);
 		rdbtnArray[1] = rdbtnMujer;
 		
@@ -153,7 +153,7 @@ public class VentanaRegistro extends JFrame {
 		getContentPane().add(lblGenero);
 
 		textField_nombre = new JTextField();
-		textField_nombre.setBounds(156, 29, 152, 20);
+		textField_nombre.setBounds(156, 29, 152, 31);
 		getContentPane().add(textField_nombre);
 		textField_nombre.setColumns(10);
 

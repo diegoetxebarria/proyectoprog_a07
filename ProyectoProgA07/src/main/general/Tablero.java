@@ -67,7 +67,7 @@ public class Tablero extends JPanel implements ActionListener {
 
 	}
 
-	private void setNivel(int nivel) {
+	public void setNivel(int nivel) {
 		if (nivel < 1 || nivel > 6) {
 			throw new IllegalArgumentException("El valor del nivel tiene que estar entre 1 y 6");
 		}

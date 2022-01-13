@@ -54,13 +54,15 @@ public class Inicio extends JFrame implements Juego{
 		});
 	}
 
-	public void jugar() {
+	@Override
+	public void jugarA() {
 		initUI();
 		Const.log.log(Level.INFO, "Se inicia el juego");
 		this.setVisible(true);
 
 	}
 
+	@Override
 	public void setNivel(int level) {
 		Const.log.log(Level.INFO, "Se establece el nivel " + level + " al juego pacman");
 		if (level < 1 || level > 6) {

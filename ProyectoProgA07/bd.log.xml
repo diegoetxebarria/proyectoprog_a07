@@ -76,3 +76,1459 @@
   <message>Creada base de datos</message>
 </record>
 </log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-01-13T16:13:16</date>
+  <millis>1642086796258</millis>
+  <sequence>0</sequence>
+  <logger>BD-server-ejemplocs</logger>
+  <level>INFO</level>
+  <class>main.bd.BD</class>
+  <method>log</method>
+  <thread>1</thread>
+  <message>Conectada base de datos pacman.bd</message>
+</record>
+<record>
+  <date>2022-01-13T16:13:16</date>
+  <millis>1642086796266</millis>
+  <sequence>1</sequence>
+  <logger>BD-server-ejemplocs</logger>
+  <level>INFO</level>
+  <class>main.bd.BD</class>
+  <method>log</method>
+  <thread>1</thread>
+  <message>Creada base de datos</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-01-13T16:16:43</date>
+  <millis>1642087003296</millis>
+  <sequence>0</sequence>
+  <logger>BD-server-ejemplocs</logger>
+  <level>INFO</level>
+  <class>main.bd.BD</class>
+  <method>log</method>
+  <thread>1</thread>
+  <message>Conectada base de datos pacman.bd</message>
+</record>
+<record>
+  <date>2022-01-13T16:16:43</date>
+  <millis>1642087003305</millis>
+  <sequence>1</sequence>
+  <logger>BD-server-ejemplocs</logger>
+  <level>INFO</level>
+  <class>main.bd.BD</class>
+  <method>log</method>
+  <thread>1</thread>
+  <message>Creada base de datos</message>
+</record>
+<record>
+  <date>2022-01-13T16:16:43</date>
+  <millis>1642087003312</millis>
+  <sequence>2</sequence>
+  <logger>BD-server-ejemplocs</logger>
+  <level>INFO</level>
+  <class>main.bd.BD</class>
+  <method>log</method>
+  <thread>1</thread>
+  <message>BD añadida  con exito1 fila	insert into juego (idJuego, juego) values(1, 'pacman')</message>
+</record>
+<record>
+  <date>2022-01-13T16:16:43</date>
+  <millis>1642087003316</millis>
+  <sequence>3</sequence>
+  <logger>BD-server-ejemplocs</logger>
+  <level>INFO</level>
+  <class>main.bd.BD</class>
+  <method>log</method>
+  <thread>1</thread>
+  <message>BD añadida  con exito1 fila	insert into juego (idJuego, juego) values(2, 'pacman')</message>
+</record>
+<record>
+  <date>2022-01-13T16:16:43</date>
+  <millis>1642087003329</millis>
+  <sequence>4</sequence>
+  <logger>BD-server-ejemplocs</logger>
+  <level>INFO</level>
+  <class>main.bd.BD</class>
+  <method>log</method>
+  <thread>1</thread>
+  <message>BD añadida 1 fila	insert into usuario (nick, password, fechaNacimiento, genero) values('diego', '11111', 36545300000, 'HOMBRE')</message>
+</record>
+<record>
+  <date>2022-01-13T16:16:43</date>
+  <millis>1642087003335</millis>
+  <sequence>5</sequence>
+  <logger>BD-server-ejemplocs</logger>
+  <level>INFO</level>
+  <class>main.bd.BD</class>
+  <method>log</method>
+  <thread>1</thread>
+  <message>BD añadida 1 fila	insert into nivel(idJuego, nick, maxNivel) values(1,'diego',1)</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-01-13T16:19:24</date>
+  <millis>1642087164201</millis>
+  <sequence>0</sequence>
+  <logger>BD-server-ejemplocs</logger>
+  <level>INFO</level>
+  <class>main.bd.BD</class>
+  <method>log</method>
+  <thread>1</thread>
+  <message>Conectada base de datos pacman.bd</message>
+</record>
+<record>
+  <date>2022-01-13T16:19:24</date>
+  <millis>1642087164204</millis>
+  <sequence>1</sequence>
+  <logger>BD-server-ejemplocs</logger>
+  <level>INFO</level>
+  <class>main.bd.BD</class>
+  <method>log</method>
+  <thread>1</thread>
+  <message>Creada base de datos</message>
+</record>
+<record>
+  <date>2022-01-13T16:19:24</date>
+  <millis>1642087164209</millis>
+  <sequence>2</sequence>
+  <logger>BD-server-ejemplocs</logger>
+  <level>SEVERE</level>
+  <class>main.bd.BD</class>
+  <method>log</method>
+  <thread>1</thread>
+  <message>Error en BD	insert into juego (idJuego, juego) values(1, 'pacman')</message>
+  <exception>
+    <message>org.sqlite.SQLiteException: [SQLITE_CONSTRAINT_PRIMARYKEY]  A PRIMARY KEY constraint failed (UNIQUE constraint failed: juego.idJuego)</message>
+    <frame>
+      <class>org.sqlite.core.DB</class>
+      <method>newSQLException</method>
+      <line>1030</line>
+    </frame>
+    <frame>
+      <class>org.sqlite.core.DB</class>
+      <method>newSQLException</method>
+      <line>1042</line>
+    </frame>
+    <frame>
+      <class>org.sqlite.core.DB</class>
+      <method>throwex</method>
+      <line>1007</line>
+    </frame>
+    <frame>
+      <class>org.sqlite.core.NativeDB</class>
+      <method>_exec_utf8</method>
+    </frame>
+    <frame>
+      <class>org.sqlite.core.NativeDB</class>
+      <method>_exec</method>
+      <line>97</line>
+    </frame>
+    <frame>
+      <class>org.sqlite.jdbc3.JDBC3Statement</class>
+      <method>executeUpdate</method>
+      <line>102</line>
+    </frame>
+    <frame>
+      <class>main.bd.BD</class>
+      <method>juegoInsert</method>
+      <line>179</line>
+    </frame>
+    <frame>
+      <class>main.bd.BD</class>
+      <method>initData</method>
+      <line>346</line>
+    </frame>
+    <frame>
+      <class>main.ventanas.VentanaRegistro</class>
+      <method>main</method>
+      <line>203</line>
+    </frame>
+  </exception>
+</record>
+<record>
+  <date>2022-01-13T16:19:24</date>
+  <millis>1642087164211</millis>
+  <sequence>3</sequence>
+  <logger>BD-server-ejemplocs</logger>
+  <level>SEVERE</level>
+  <class>main.bd.BD</class>
+  <method>log</method>
+  <thread>1</thread>
+  <message>Error en BD	insert into juego (idJuego, juego) values(2, 'pacman')</message>
+  <exception>
+    <message>org.sqlite.SQLiteException: [SQLITE_CONSTRAINT_PRIMARYKEY]  A PRIMARY KEY constraint failed (UNIQUE constraint failed: juego.idJuego)</message>
+    <frame>
+      <class>org.sqlite.core.DB</class>
+      <method>newSQLException</method>
+      <line>1030</line>
+    </frame>
+    <frame>
+      <class>org.sqlite.core.DB</class>
+      <method>newSQLException</method>
+      <line>1042</line>
+    </frame>
+    <frame>
+      <class>org.sqlite.core.DB</class>
+      <method>throwex</method>
+      <line>1007</line>
+    </frame>
+    <frame>
+      <class>org.sqlite.core.NativeDB</class>
+      <method>_exec_utf8</method>
+    </frame>
+    <frame>
+      <class>org.sqlite.core.NativeDB</class>
+      <method>_exec</method>
+      <line>97</line>
+    </frame>
+    <frame>
+      <class>org.sqlite.jdbc3.JDBC3Statement</class>
+      <method>executeUpdate</method>
+      <line>102</line>
+    </frame>
+    <frame>
+      <class>main.bd.BD</class>
+      <method>juegoInsert</method>
+      <line>179</line>
+    </frame>
+    <frame>
+      <class>main.bd.BD</class>
+      <method>initData</method>
+      <line>346</line>
+    </frame>
+    <frame>
+      <class>main.ventanas.VentanaRegistro</class>
+      <method>main</method>
+      <line>203</line>
+    </frame>
+  </exception>
+</record>
+<record>
+  <date>2022-01-13T16:19:24</date>
+  <millis>1642087164215</millis>
+  <sequence>4</sequence>
+  <logger>BD-server-ejemplocs</logger>
+  <level>SEVERE</level>
+  <class>main.bd.BD</class>
+  <method>log</method>
+  <thread>1</thread>
+  <message>Error en BD	insert into usuario (nick, password, fechaNacimiento, genero) values('diego', '11111', 36545300000, 'HOMBRE') o </message>
+  <exception>
+    <message>org.sqlite.SQLiteException: [SQLITE_CONSTRAINT_PRIMARYKEY]  A PRIMARY KEY constraint failed (UNIQUE constraint failed: usuario.nick)</message>
+    <frame>
+      <class>org.sqlite.core.DB</class>
+      <method>newSQLException</method>
+      <line>1030</line>
+    </frame>
+    <frame>
+      <class>org.sqlite.core.DB</class>
+      <method>newSQLException</method>
+      <line>1042</line>
+    </frame>
+    <frame>
+      <class>org.sqlite.core.DB</class>
+      <method>throwex</method>
+      <line>1007</line>
+    </frame>
+    <frame>
+      <class>org.sqlite.core.NativeDB</class>
+      <method>_exec_utf8</method>
+    </frame>
+    <frame>
+      <class>org.sqlite.core.NativeDB</class>
+      <method>_exec</method>
+      <line>97</line>
+    </frame>
+    <frame>
+      <class>org.sqlite.jdbc3.JDBC3Statement</class>
+      <method>executeUpdate</method>
+      <line>102</line>
+    </frame>
+    <frame>
+      <class>main.bd.BD</class>
+      <method>usuarioInsert</method>
+      <line>147</line>
+    </frame>
+    <frame>
+      <class>main.bd.BD</class>
+      <method>initData</method>
+      <line>387</line>
+    </frame>
+    <frame>
+      <class>main.ventanas.VentanaRegistro</class>
+      <method>main</method>
+      <line>203</line>
+    </frame>
+  </exception>
+</record>
+<record>
+  <date>2022-01-13T16:19:42</date>
+  <millis>1642087182232</millis>
+  <sequence>5</sequence>
+  <logger>BD-server-ejemplocs</logger>
+  <level>INFO</level>
+  <class>main.bd.BD</class>
+  <method>log</method>
+  <thread>18</thread>
+  <message>Creada base de datos</message>
+</record>
+<record>
+  <date>2022-01-13T16:19:42</date>
+  <millis>1642087182243</millis>
+  <sequence>6</sequence>
+  <logger>BD-server-ejemplocs</logger>
+  <level>SEVERE</level>
+  <class>main.bd.BD</class>
+  <method>log</method>
+  <thread>18</thread>
+  <message>Error en BD	insert into usuario (nick, password, fechaNacimiento, genero) values('diego', '1234', -1980115200000, 'HOMBRE') o </message>
+  <exception>
+    <message>org.sqlite.SQLiteException: [SQLITE_CONSTRAINT_PRIMARYKEY]  A PRIMARY KEY constraint failed (UNIQUE constraint failed: usuario.nick)</message>
+    <frame>
+      <class>org.sqlite.core.DB</class>
+      <method>newSQLException</method>
+      <line>1030</line>
+    </frame>
+    <frame>
+      <class>org.sqlite.core.DB</class>
+      <method>newSQLException</method>
+      <line>1042</line>
+    </frame>
+    <frame>
+      <class>org.sqlite.core.DB</class>
+      <method>throwex</method>
+      <line>1007</line>
+    </frame>
+    <frame>
+      <class>org.sqlite.core.NativeDB</class>
+      <method>_exec_utf8</method>
+    </frame>
+    <frame>
+      <class>org.sqlite.core.NativeDB</class>
+      <method>_exec</method>
+      <line>97</line>
+    </frame>
+    <frame>
+      <class>org.sqlite.jdbc3.JDBC3Statement</class>
+      <method>executeUpdate</method>
+      <line>102</line>
+    </frame>
+    <frame>
+      <class>main.bd.BD</class>
+      <method>usuarioInsert</method>
+      <line>147</line>
+    </frame>
+    <frame>
+      <class>main.ventanas.VentanaRegistro$1$1</class>
+      <method>run</method>
+      <line>125</line>
+    </frame>
+  </exception>
+</record>
+<record>
+  <date>2022-01-13T16:19:44</date>
+  <millis>1642087184694</millis>
+  <sequence>7</sequence>
+  <logger>BD-server-ejemplocs</logger>
+  <level>INFO</level>
+  <class>main.bd.BD</class>
+  <method>log</method>
+  <thread>19</thread>
+  <message>Creada base de datos</message>
+</record>
+<record>
+  <date>2022-01-13T16:19:44</date>
+  <millis>1642087184696</millis>
+  <sequence>8</sequence>
+  <logger>BD-server-ejemplocs</logger>
+  <level>SEVERE</level>
+  <class>main.bd.BD</class>
+  <method>log</method>
+  <thread>19</thread>
+  <message>Error en BD	insert into usuario (nick, password, fechaNacimiento, genero) values('diego', '1234', -1980115200000, 'HOMBRE') o </message>
+  <exception>
+    <message>org.sqlite.SQLiteException: [SQLITE_CONSTRAINT_PRIMARYKEY]  A PRIMARY KEY constraint failed (UNIQUE constraint failed: usuario.nick)</message>
+    <frame>
+      <class>org.sqlite.core.DB</class>
+      <method>newSQLException</method>
+      <line>1030</line>
+    </frame>
+    <frame>
+      <class>org.sqlite.core.DB</class>
+      <method>newSQLException</method>
+      <line>1042</line>
+    </frame>
+    <frame>
+      <class>org.sqlite.core.DB</class>
+      <method>throwex</method>
+      <line>1007</line>
+    </frame>
+    <frame>
+      <class>org.sqlite.core.NativeDB</class>
+      <method>_exec_utf8</method>
+    </frame>
+    <frame>
+      <class>org.sqlite.core.NativeDB</class>
+      <method>_exec</method>
+      <line>97</line>
+    </frame>
+    <frame>
+      <class>org.sqlite.jdbc3.JDBC3Statement</class>
+      <method>executeUpdate</method>
+      <line>102</line>
+    </frame>
+    <frame>
+      <class>main.bd.BD</class>
+      <method>usuarioInsert</method>
+      <line>147</line>
+    </frame>
+    <frame>
+      <class>main.ventanas.VentanaRegistro$1$1</class>
+      <method>run</method>
+      <line>125</line>
+    </frame>
+  </exception>
+</record>
+<record>
+  <date>2022-01-13T16:19:45</date>
+  <millis>1642087185642</millis>
+  <sequence>9</sequence>
+  <logger>BD-server-ejemplocs</logger>
+  <level>INFO</level>
+  <class>main.bd.BD</class>
+  <method>log</method>
+  <thread>20</thread>
+  <message>Creada base de datos</message>
+</record>
+<record>
+  <date>2022-01-13T16:19:45</date>
+  <millis>1642087185644</millis>
+  <sequence>10</sequence>
+  <logger>BD-server-ejemplocs</logger>
+  <level>SEVERE</level>
+  <class>main.bd.BD</class>
+  <method>log</method>
+  <thread>20</thread>
+  <message>Error en BD	insert into usuario (nick, password, fechaNacimiento, genero) values('diego', '1234', -1980115200000, 'HOMBRE') o </message>
+  <exception>
+    <message>org.sqlite.SQLiteException: [SQLITE_CONSTRAINT_PRIMARYKEY]  A PRIMARY KEY constraint failed (UNIQUE constraint failed: usuario.nick)</message>
+    <frame>
+      <class>org.sqlite.core.DB</class>
+      <method>newSQLException</method>
+      <line>1030</line>
+    </frame>
+    <frame>
+      <class>org.sqlite.core.DB</class>
+      <method>newSQLException</method>
+      <line>1042</line>
+    </frame>
+    <frame>
+      <class>org.sqlite.core.DB</class>
+      <method>throwex</method>
+      <line>1007</line>
+    </frame>
+    <frame>
+      <class>org.sqlite.core.NativeDB</class>
+      <method>_exec_utf8</method>
+    </frame>
+    <frame>
+      <class>org.sqlite.core.NativeDB</class>
+      <method>_exec</method>
+      <line>97</line>
+    </frame>
+    <frame>
+      <class>org.sqlite.jdbc3.JDBC3Statement</class>
+      <method>executeUpdate</method>
+      <line>102</line>
+    </frame>
+    <frame>
+      <class>main.bd.BD</class>
+      <method>usuarioInsert</method>
+      <line>147</line>
+    </frame>
+    <frame>
+      <class>main.ventanas.VentanaRegistro$1$1</class>
+      <method>run</method>
+      <line>125</line>
+    </frame>
+  </exception>
+</record>
+<record>
+  <date>2022-01-13T16:19:46</date>
+  <millis>1642087186230</millis>
+  <sequence>11</sequence>
+  <logger>BD-server-ejemplocs</logger>
+  <level>INFO</level>
+  <class>main.bd.BD</class>
+  <method>log</method>
+  <thread>21</thread>
+  <message>Creada base de datos</message>
+</record>
+<record>
+  <date>2022-01-13T16:19:46</date>
+  <millis>1642087186231</millis>
+  <sequence>12</sequence>
+  <logger>BD-server-ejemplocs</logger>
+  <level>SEVERE</level>
+  <class>main.bd.BD</class>
+  <method>log</method>
+  <thread>21</thread>
+  <message>Error en BD	insert into usuario (nick, password, fechaNacimiento, genero) values('diego', '1234', -1980115200000, 'HOMBRE') o </message>
+  <exception>
+    <message>org.sqlite.SQLiteException: [SQLITE_CONSTRAINT_PRIMARYKEY]  A PRIMARY KEY constraint failed (UNIQUE constraint failed: usuario.nick)</message>
+    <frame>
+      <class>org.sqlite.core.DB</class>
+      <method>newSQLException</method>
+      <line>1030</line>
+    </frame>
+    <frame>
+      <class>org.sqlite.core.DB</class>
+      <method>newSQLException</method>
+      <line>1042</line>
+    </frame>
+    <frame>
+      <class>org.sqlite.core.DB</class>
+      <method>throwex</method>
+      <line>1007</line>
+    </frame>
+    <frame>
+      <class>org.sqlite.core.NativeDB</class>
+      <method>_exec_utf8</method>
+    </frame>
+    <frame>
+      <class>org.sqlite.core.NativeDB</class>
+      <method>_exec</method>
+      <line>97</line>
+    </frame>
+    <frame>
+      <class>org.sqlite.jdbc3.JDBC3Statement</class>
+      <method>executeUpdate</method>
+      <line>102</line>
+    </frame>
+    <frame>
+      <class>main.bd.BD</class>
+      <method>usuarioInsert</method>
+      <line>147</line>
+    </frame>
+    <frame>
+      <class>main.ventanas.VentanaRegistro$1$1</class>
+      <method>run</method>
+      <line>125</line>
+    </frame>
+  </exception>
+</record>
+<record>
+  <date>2022-01-13T16:19:46</date>
+  <millis>1642087186531</millis>
+  <sequence>13</sequence>
+  <logger>BD-server-ejemplocs</logger>
+  <level>INFO</level>
+  <class>main.bd.BD</class>
+  <method>log</method>
+  <thread>22</thread>
+  <message>Creada base de datos</message>
+</record>
+<record>
+  <date>2022-01-13T16:19:46</date>
+  <millis>1642087186532</millis>
+  <sequence>14</sequence>
+  <logger>BD-server-ejemplocs</logger>
+  <level>SEVERE</level>
+  <class>main.bd.BD</class>
+  <method>log</method>
+  <thread>22</thread>
+  <message>Error en BD	insert into usuario (nick, password, fechaNacimiento, genero) values('diego', '1234', -1980115200000, 'HOMBRE') o </message>
+  <exception>
+    <message>org.sqlite.SQLiteException: [SQLITE_CONSTRAINT_PRIMARYKEY]  A PRIMARY KEY constraint failed (UNIQUE constraint failed: usuario.nick)</message>
+    <frame>
+      <class>org.sqlite.core.DB</class>
+      <method>newSQLException</method>
+      <line>1030</line>
+    </frame>
+    <frame>
+      <class>org.sqlite.core.DB</class>
+      <method>newSQLException</method>
+      <line>1042</line>
+    </frame>
+    <frame>
+      <class>org.sqlite.core.DB</class>
+      <method>throwex</method>
+      <line>1007</line>
+    </frame>
+    <frame>
+      <class>org.sqlite.core.NativeDB</class>
+      <method>_exec_utf8</method>
+    </frame>
+    <frame>
+      <class>org.sqlite.core.NativeDB</class>
+      <method>_exec</method>
+      <line>97</line>
+    </frame>
+    <frame>
+      <class>org.sqlite.jdbc3.JDBC3Statement</class>
+      <method>executeUpdate</method>
+      <line>102</line>
+    </frame>
+    <frame>
+      <class>main.bd.BD</class>
+      <method>usuarioInsert</method>
+      <line>147</line>
+    </frame>
+    <frame>
+      <class>main.ventanas.VentanaRegistro$1$1</class>
+      <method>run</method>
+      <line>125</line>
+    </frame>
+  </exception>
+</record>
+<record>
+  <date>2022-01-13T16:19:47</date>
+  <millis>1642087187299</millis>
+  <sequence>15</sequence>
+  <logger>BD-server-ejemplocs</logger>
+  <level>INFO</level>
+  <class>main.bd.BD</class>
+  <method>log</method>
+  <thread>23</thread>
+  <message>Creada base de datos</message>
+</record>
+<record>
+  <date>2022-01-13T16:19:47</date>
+  <millis>1642087187301</millis>
+  <sequence>16</sequence>
+  <logger>BD-server-ejemplocs</logger>
+  <level>SEVERE</level>
+  <class>main.bd.BD</class>
+  <method>log</method>
+  <thread>23</thread>
+  <message>Error en BD	insert into usuario (nick, password, fechaNacimiento, genero) values('diego', '1234', -1980115200000, 'HOMBRE') o </message>
+  <exception>
+    <message>org.sqlite.SQLiteException: [SQLITE_CONSTRAINT_PRIMARYKEY]  A PRIMARY KEY constraint failed (UNIQUE constraint failed: usuario.nick)</message>
+    <frame>
+      <class>org.sqlite.core.DB</class>
+      <method>newSQLException</method>
+      <line>1030</line>
+    </frame>
+    <frame>
+      <class>org.sqlite.core.DB</class>
+      <method>newSQLException</method>
+      <line>1042</line>
+    </frame>
+    <frame>
+      <class>org.sqlite.core.DB</class>
+      <method>throwex</method>
+      <line>1007</line>
+    </frame>
+    <frame>
+      <class>org.sqlite.core.NativeDB</class>
+      <method>_exec_utf8</method>
+    </frame>
+    <frame>
+      <class>org.sqlite.core.NativeDB</class>
+      <method>_exec</method>
+      <line>97</line>
+    </frame>
+    <frame>
+      <class>org.sqlite.jdbc3.JDBC3Statement</class>
+      <method>executeUpdate</method>
+      <line>102</line>
+    </frame>
+    <frame>
+      <class>main.bd.BD</class>
+      <method>usuarioInsert</method>
+      <line>147</line>
+    </frame>
+    <frame>
+      <class>main.ventanas.VentanaRegistro$1$1</class>
+      <method>run</method>
+      <line>125</line>
+    </frame>
+  </exception>
+</record>
+<record>
+  <date>2022-01-13T16:19:47</date>
+  <millis>1642087187883</millis>
+  <sequence>17</sequence>
+  <logger>BD-server-ejemplocs</logger>
+  <level>INFO</level>
+  <class>main.bd.BD</class>
+  <method>log</method>
+  <thread>24</thread>
+  <message>Creada base de datos</message>
+</record>
+<record>
+  <date>2022-01-13T16:19:47</date>
+  <millis>1642087187885</millis>
+  <sequence>18</sequence>
+  <logger>BD-server-ejemplocs</logger>
+  <level>SEVERE</level>
+  <class>main.bd.BD</class>
+  <method>log</method>
+  <thread>24</thread>
+  <message>Error en BD	insert into usuario (nick, password, fechaNacimiento, genero) values('diego', '1234', -1980115200000, 'HOMBRE') o </message>
+  <exception>
+    <message>org.sqlite.SQLiteException: [SQLITE_CONSTRAINT_PRIMARYKEY]  A PRIMARY KEY constraint failed (UNIQUE constraint failed: usuario.nick)</message>
+    <frame>
+      <class>org.sqlite.core.DB</class>
+      <method>newSQLException</method>
+      <line>1030</line>
+    </frame>
+    <frame>
+      <class>org.sqlite.core.DB</class>
+      <method>newSQLException</method>
+      <line>1042</line>
+    </frame>
+    <frame>
+      <class>org.sqlite.core.DB</class>
+      <method>throwex</method>
+      <line>1007</line>
+    </frame>
+    <frame>
+      <class>org.sqlite.core.NativeDB</class>
+      <method>_exec_utf8</method>
+    </frame>
+    <frame>
+      <class>org.sqlite.core.NativeDB</class>
+      <method>_exec</method>
+      <line>97</line>
+    </frame>
+    <frame>
+      <class>org.sqlite.jdbc3.JDBC3Statement</class>
+      <method>executeUpdate</method>
+      <line>102</line>
+    </frame>
+    <frame>
+      <class>main.bd.BD</class>
+      <method>usuarioInsert</method>
+      <line>147</line>
+    </frame>
+    <frame>
+      <class>main.ventanas.VentanaRegistro$1$1</class>
+      <method>run</method>
+      <line>125</line>
+    </frame>
+  </exception>
+</record>
+<record>
+  <date>2022-01-13T16:19:48</date>
+  <millis>1642087188719</millis>
+  <sequence>19</sequence>
+  <logger>BD-server-ejemplocs</logger>
+  <level>INFO</level>
+  <class>main.bd.BD</class>
+  <method>log</method>
+  <thread>25</thread>
+  <message>Creada base de datos</message>
+</record>
+<record>
+  <date>2022-01-13T16:19:48</date>
+  <millis>1642087188720</millis>
+  <sequence>20</sequence>
+  <logger>BD-server-ejemplocs</logger>
+  <level>SEVERE</level>
+  <class>main.bd.BD</class>
+  <method>log</method>
+  <thread>25</thread>
+  <message>Error en BD	insert into usuario (nick, password, fechaNacimiento, genero) values('diego', '1234', -1980115200000, 'HOMBRE') o </message>
+  <exception>
+    <message>org.sqlite.SQLiteException: [SQLITE_CONSTRAINT_PRIMARYKEY]  A PRIMARY KEY constraint failed (UNIQUE constraint failed: usuario.nick)</message>
+    <frame>
+      <class>org.sqlite.core.DB</class>
+      <method>newSQLException</method>
+      <line>1030</line>
+    </frame>
+    <frame>
+      <class>org.sqlite.core.DB</class>
+      <method>newSQLException</method>
+      <line>1042</line>
+    </frame>
+    <frame>
+      <class>org.sqlite.core.DB</class>
+      <method>throwex</method>
+      <line>1007</line>
+    </frame>
+    <frame>
+      <class>org.sqlite.core.NativeDB</class>
+      <method>_exec_utf8</method>
+    </frame>
+    <frame>
+      <class>org.sqlite.core.NativeDB</class>
+      <method>_exec</method>
+      <line>97</line>
+    </frame>
+    <frame>
+      <class>org.sqlite.jdbc3.JDBC3Statement</class>
+      <method>executeUpdate</method>
+      <line>102</line>
+    </frame>
+    <frame>
+      <class>main.bd.BD</class>
+      <method>usuarioInsert</method>
+      <line>147</line>
+    </frame>
+    <frame>
+      <class>main.ventanas.VentanaRegistro$1$1</class>
+      <method>run</method>
+      <line>125</line>
+    </frame>
+  </exception>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-01-13T16:21:20</date>
+  <millis>1642087280207</millis>
+  <sequence>0</sequence>
+  <logger>BD-server-ejemplocs</logger>
+  <level>INFO</level>
+  <class>main.bd.BD</class>
+  <method>log</method>
+  <thread>1</thread>
+  <message>Conectada base de datos pacman.bd</message>
+</record>
+<record>
+  <date>2022-01-13T16:21:20</date>
+  <millis>1642087280210</millis>
+  <sequence>1</sequence>
+  <logger>BD-server-ejemplocs</logger>
+  <level>INFO</level>
+  <class>main.bd.BD</class>
+  <method>log</method>
+  <thread>1</thread>
+  <message>Creada base de datos</message>
+</record>
+<record>
+  <date>2022-01-13T16:21:20</date>
+  <millis>1642087280213</millis>
+  <sequence>2</sequence>
+  <logger>BD-server-ejemplocs</logger>
+  <level>SEVERE</level>
+  <class>main.bd.BD</class>
+  <method>log</method>
+  <thread>1</thread>
+  <message>Error en BD	insert into juego (idJuego, juego) values(1, 'pacman')</message>
+  <exception>
+    <message>org.sqlite.SQLiteException: [SQLITE_CONSTRAINT_PRIMARYKEY]  A PRIMARY KEY constraint failed (UNIQUE constraint failed: juego.idJuego)</message>
+    <frame>
+      <class>org.sqlite.core.DB</class>
+      <method>newSQLException</method>
+      <line>1030</line>
+    </frame>
+    <frame>
+      <class>org.sqlite.core.DB</class>
+      <method>newSQLException</method>
+      <line>1042</line>
+    </frame>
+    <frame>
+      <class>org.sqlite.core.DB</class>
+      <method>throwex</method>
+      <line>1007</line>
+    </frame>
+    <frame>
+      <class>org.sqlite.core.NativeDB</class>
+      <method>_exec_utf8</method>
+    </frame>
+    <frame>
+      <class>org.sqlite.core.NativeDB</class>
+      <method>_exec</method>
+      <line>97</line>
+    </frame>
+    <frame>
+      <class>org.sqlite.jdbc3.JDBC3Statement</class>
+      <method>executeUpdate</method>
+      <line>102</line>
+    </frame>
+    <frame>
+      <class>main.bd.BD</class>
+      <method>juegoInsert</method>
+      <line>179</line>
+    </frame>
+    <frame>
+      <class>main.bd.BD</class>
+      <method>initData</method>
+      <line>346</line>
+    </frame>
+    <frame>
+      <class>main.ventanas.VentanaSeleccionJuego</class>
+      <method>main</method>
+      <line>126</line>
+    </frame>
+  </exception>
+</record>
+<record>
+  <date>2022-01-13T16:21:20</date>
+  <millis>1642087280215</millis>
+  <sequence>3</sequence>
+  <logger>BD-server-ejemplocs</logger>
+  <level>SEVERE</level>
+  <class>main.bd.BD</class>
+  <method>log</method>
+  <thread>1</thread>
+  <message>Error en BD	insert into juego (idJuego, juego) values(2, 'pacman')</message>
+  <exception>
+    <message>org.sqlite.SQLiteException: [SQLITE_CONSTRAINT_PRIMARYKEY]  A PRIMARY KEY constraint failed (UNIQUE constraint failed: juego.idJuego)</message>
+    <frame>
+      <class>org.sqlite.core.DB</class>
+      <method>newSQLException</method>
+      <line>1030</line>
+    </frame>
+    <frame>
+      <class>org.sqlite.core.DB</class>
+      <method>newSQLException</method>
+      <line>1042</line>
+    </frame>
+    <frame>
+      <class>org.sqlite.core.DB</class>
+      <method>throwex</method>
+      <line>1007</line>
+    </frame>
+    <frame>
+      <class>org.sqlite.core.NativeDB</class>
+      <method>_exec_utf8</method>
+    </frame>
+    <frame>
+      <class>org.sqlite.core.NativeDB</class>
+      <method>_exec</method>
+      <line>97</line>
+    </frame>
+    <frame>
+      <class>org.sqlite.jdbc3.JDBC3Statement</class>
+      <method>executeUpdate</method>
+      <line>102</line>
+    </frame>
+    <frame>
+      <class>main.bd.BD</class>
+      <method>juegoInsert</method>
+      <line>179</line>
+    </frame>
+    <frame>
+      <class>main.bd.BD</class>
+      <method>initData</method>
+      <line>346</line>
+    </frame>
+    <frame>
+      <class>main.ventanas.VentanaSeleccionJuego</class>
+      <method>main</method>
+      <line>126</line>
+    </frame>
+  </exception>
+</record>
+<record>
+  <date>2022-01-13T16:21:20</date>
+  <millis>1642087280217</millis>
+  <sequence>4</sequence>
+  <logger>BD-server-ejemplocs</logger>
+  <level>SEVERE</level>
+  <class>main.bd.BD</class>
+  <method>log</method>
+  <thread>1</thread>
+  <message>Error en BD	insert into usuario (nick, password, fechaNacimiento, genero) values('diego', '11111', 36545300000, 'HOMBRE') o </message>
+  <exception>
+    <message>org.sqlite.SQLiteException: [SQLITE_CONSTRAINT_PRIMARYKEY]  A PRIMARY KEY constraint failed (UNIQUE constraint failed: usuario.nick)</message>
+    <frame>
+      <class>org.sqlite.core.DB</class>
+      <method>newSQLException</method>
+      <line>1030</line>
+    </frame>
+    <frame>
+      <class>org.sqlite.core.DB</class>
+      <method>newSQLException</method>
+      <line>1042</line>
+    </frame>
+    <frame>
+      <class>org.sqlite.core.DB</class>
+      <method>throwex</method>
+      <line>1007</line>
+    </frame>
+    <frame>
+      <class>org.sqlite.core.NativeDB</class>
+      <method>_exec_utf8</method>
+    </frame>
+    <frame>
+      <class>org.sqlite.core.NativeDB</class>
+      <method>_exec</method>
+      <line>97</line>
+    </frame>
+    <frame>
+      <class>org.sqlite.jdbc3.JDBC3Statement</class>
+      <method>executeUpdate</method>
+      <line>102</line>
+    </frame>
+    <frame>
+      <class>main.bd.BD</class>
+      <method>usuarioInsert</method>
+      <line>147</line>
+    </frame>
+    <frame>
+      <class>main.bd.BD</class>
+      <method>initData</method>
+      <line>387</line>
+    </frame>
+    <frame>
+      <class>main.ventanas.VentanaSeleccionJuego</class>
+      <method>main</method>
+      <line>126</line>
+    </frame>
+  </exception>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-01-13T16:22:51</date>
+  <millis>1642087371379</millis>
+  <sequence>0</sequence>
+  <logger>BD-server-ejemplocs</logger>
+  <level>INFO</level>
+  <class>main.bd.BD</class>
+  <method>log</method>
+  <thread>1</thread>
+  <message>Conectada base de datos pacman.bd</message>
+</record>
+<record>
+  <date>2022-01-13T16:22:51</date>
+  <millis>1642087371384</millis>
+  <sequence>1</sequence>
+  <logger>BD-server-ejemplocs</logger>
+  <level>INFO</level>
+  <class>main.bd.BD</class>
+  <method>log</method>
+  <thread>1</thread>
+  <message>Creada base de datos</message>
+</record>
+<record>
+  <date>2022-01-13T16:22:51</date>
+  <millis>1642087371391</millis>
+  <sequence>2</sequence>
+  <logger>BD-server-ejemplocs</logger>
+  <level>SEVERE</level>
+  <class>main.bd.BD</class>
+  <method>log</method>
+  <thread>1</thread>
+  <message>Error en BD	insert into juego (idJuego, juego) values(1, 'pacman')</message>
+  <exception>
+    <message>org.sqlite.SQLiteException: [SQLITE_CONSTRAINT_PRIMARYKEY]  A PRIMARY KEY constraint failed (UNIQUE constraint failed: juego.idJuego)</message>
+    <frame>
+      <class>org.sqlite.core.DB</class>
+      <method>newSQLException</method>
+      <line>1030</line>
+    </frame>
+    <frame>
+      <class>org.sqlite.core.DB</class>
+      <method>newSQLException</method>
+      <line>1042</line>
+    </frame>
+    <frame>
+      <class>org.sqlite.core.DB</class>
+      <method>throwex</method>
+      <line>1007</line>
+    </frame>
+    <frame>
+      <class>org.sqlite.core.NativeDB</class>
+      <method>_exec_utf8</method>
+    </frame>
+    <frame>
+      <class>org.sqlite.core.NativeDB</class>
+      <method>_exec</method>
+      <line>97</line>
+    </frame>
+    <frame>
+      <class>org.sqlite.jdbc3.JDBC3Statement</class>
+      <method>executeUpdate</method>
+      <line>102</line>
+    </frame>
+    <frame>
+      <class>main.bd.BD</class>
+      <method>juegoInsert</method>
+      <line>179</line>
+    </frame>
+    <frame>
+      <class>main.bd.BD</class>
+      <method>initData</method>
+      <line>346</line>
+    </frame>
+    <frame>
+      <class>main.ventanas.VentanaSeleccionJuego</class>
+      <method>main</method>
+      <line>122</line>
+    </frame>
+  </exception>
+</record>
+<record>
+  <date>2022-01-13T16:22:51</date>
+  <millis>1642087371393</millis>
+  <sequence>3</sequence>
+  <logger>BD-server-ejemplocs</logger>
+  <level>SEVERE</level>
+  <class>main.bd.BD</class>
+  <method>log</method>
+  <thread>1</thread>
+  <message>Error en BD	insert into juego (idJuego, juego) values(2, 'pacman')</message>
+  <exception>
+    <message>org.sqlite.SQLiteException: [SQLITE_CONSTRAINT_PRIMARYKEY]  A PRIMARY KEY constraint failed (UNIQUE constraint failed: juego.idJuego)</message>
+    <frame>
+      <class>org.sqlite.core.DB</class>
+      <method>newSQLException</method>
+      <line>1030</line>
+    </frame>
+    <frame>
+      <class>org.sqlite.core.DB</class>
+      <method>newSQLException</method>
+      <line>1042</line>
+    </frame>
+    <frame>
+      <class>org.sqlite.core.DB</class>
+      <method>throwex</method>
+      <line>1007</line>
+    </frame>
+    <frame>
+      <class>org.sqlite.core.NativeDB</class>
+      <method>_exec_utf8</method>
+    </frame>
+    <frame>
+      <class>org.sqlite.core.NativeDB</class>
+      <method>_exec</method>
+      <line>97</line>
+    </frame>
+    <frame>
+      <class>org.sqlite.jdbc3.JDBC3Statement</class>
+      <method>executeUpdate</method>
+      <line>102</line>
+    </frame>
+    <frame>
+      <class>main.bd.BD</class>
+      <method>juegoInsert</method>
+      <line>179</line>
+    </frame>
+    <frame>
+      <class>main.bd.BD</class>
+      <method>initData</method>
+      <line>346</line>
+    </frame>
+    <frame>
+      <class>main.ventanas.VentanaSeleccionJuego</class>
+      <method>main</method>
+      <line>122</line>
+    </frame>
+  </exception>
+</record>
+<record>
+  <date>2022-01-13T16:22:51</date>
+  <millis>1642087371397</millis>
+  <sequence>4</sequence>
+  <logger>BD-server-ejemplocs</logger>
+  <level>SEVERE</level>
+  <class>main.bd.BD</class>
+  <method>log</method>
+  <thread>1</thread>
+  <message>Error en BD	insert into usuario (nick, password, fechaNacimiento, genero) values('diego', '11111', 36545300000, 'HOMBRE') o </message>
+  <exception>
+    <message>org.sqlite.SQLiteException: [SQLITE_CONSTRAINT_PRIMARYKEY]  A PRIMARY KEY constraint failed (UNIQUE constraint failed: usuario.nick)</message>
+    <frame>
+      <class>org.sqlite.core.DB</class>
+      <method>newSQLException</method>
+      <line>1030</line>
+    </frame>
+    <frame>
+      <class>org.sqlite.core.DB</class>
+      <method>newSQLException</method>
+      <line>1042</line>
+    </frame>
+    <frame>
+      <class>org.sqlite.core.DB</class>
+      <method>throwex</method>
+      <line>1007</line>
+    </frame>
+    <frame>
+      <class>org.sqlite.core.NativeDB</class>
+      <method>_exec_utf8</method>
+    </frame>
+    <frame>
+      <class>org.sqlite.core.NativeDB</class>
+      <method>_exec</method>
+      <line>97</line>
+    </frame>
+    <frame>
+      <class>org.sqlite.jdbc3.JDBC3Statement</class>
+      <method>executeUpdate</method>
+      <line>102</line>
+    </frame>
+    <frame>
+      <class>main.bd.BD</class>
+      <method>usuarioInsert</method>
+      <line>147</line>
+    </frame>
+    <frame>
+      <class>main.bd.BD</class>
+      <method>initData</method>
+      <line>387</line>
+    </frame>
+    <frame>
+      <class>main.ventanas.VentanaSeleccionJuego</class>
+      <method>main</method>
+      <line>122</line>
+    </frame>
+  </exception>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-01-13T16:23:16</date>
+  <millis>1642087396425</millis>
+  <sequence>0</sequence>
+  <logger>BD-server-ejemplocs</logger>
+  <level>INFO</level>
+  <class>main.bd.BD</class>
+  <method>log</method>
+  <thread>1</thread>
+  <message>Conectada base de datos pacman.bd</message>
+</record>
+<record>
+  <date>2022-01-13T16:23:16</date>
+  <millis>1642087396428</millis>
+  <sequence>1</sequence>
+  <logger>BD-server-ejemplocs</logger>
+  <level>INFO</level>
+  <class>main.bd.BD</class>
+  <method>log</method>
+  <thread>1</thread>
+  <message>Creada base de datos</message>
+</record>
+<record>
+  <date>2022-01-13T16:23:16</date>
+  <millis>1642087396432</millis>
+  <sequence>2</sequence>
+  <logger>BD-server-ejemplocs</logger>
+  <level>SEVERE</level>
+  <class>main.bd.BD</class>
+  <method>log</method>
+  <thread>1</thread>
+  <message>Error en BD	insert into juego (idJuego, juego) values(1, 'pacman')</message>
+  <exception>
+    <message>org.sqlite.SQLiteException: [SQLITE_CONSTRAINT_PRIMARYKEY]  A PRIMARY KEY constraint failed (UNIQUE constraint failed: juego.idJuego)</message>
+    <frame>
+      <class>org.sqlite.core.DB</class>
+      <method>newSQLException</method>
+      <line>1030</line>
+    </frame>
+    <frame>
+      <class>org.sqlite.core.DB</class>
+      <method>newSQLException</method>
+      <line>1042</line>
+    </frame>
+    <frame>
+      <class>org.sqlite.core.DB</class>
+      <method>throwex</method>
+      <line>1007</line>
+    </frame>
+    <frame>
+      <class>org.sqlite.core.NativeDB</class>
+      <method>_exec_utf8</method>
+    </frame>
+    <frame>
+      <class>org.sqlite.core.NativeDB</class>
+      <method>_exec</method>
+      <line>97</line>
+    </frame>
+    <frame>
+      <class>org.sqlite.jdbc3.JDBC3Statement</class>
+      <method>executeUpdate</method>
+      <line>102</line>
+    </frame>
+    <frame>
+      <class>main.bd.BD</class>
+      <method>juegoInsert</method>
+      <line>179</line>
+    </frame>
+    <frame>
+      <class>main.bd.BD</class>
+      <method>initData</method>
+      <line>346</line>
+    </frame>
+    <frame>
+      <class>main.ventanas.VentanaSeleccionJuego</class>
+      <method>main</method>
+      <line>122</line>
+    </frame>
+  </exception>
+</record>
+<record>
+  <date>2022-01-13T16:23:16</date>
+  <millis>1642087396434</millis>
+  <sequence>3</sequence>
+  <logger>BD-server-ejemplocs</logger>
+  <level>SEVERE</level>
+  <class>main.bd.BD</class>
+  <method>log</method>
+  <thread>1</thread>
+  <message>Error en BD	insert into juego (idJuego, juego) values(2, 'pacman')</message>
+  <exception>
+    <message>org.sqlite.SQLiteException: [SQLITE_CONSTRAINT_PRIMARYKEY]  A PRIMARY KEY constraint failed (UNIQUE constraint failed: juego.idJuego)</message>
+    <frame>
+      <class>org.sqlite.core.DB</class>
+      <method>newSQLException</method>
+      <line>1030</line>
+    </frame>
+    <frame>
+      <class>org.sqlite.core.DB</class>
+      <method>newSQLException</method>
+      <line>1042</line>
+    </frame>
+    <frame>
+      <class>org.sqlite.core.DB</class>
+      <method>throwex</method>
+      <line>1007</line>
+    </frame>
+    <frame>
+      <class>org.sqlite.core.NativeDB</class>
+      <method>_exec_utf8</method>
+    </frame>
+    <frame>
+      <class>org.sqlite.core.NativeDB</class>
+      <method>_exec</method>
+      <line>97</line>
+    </frame>
+    <frame>
+      <class>org.sqlite.jdbc3.JDBC3Statement</class>
+      <method>executeUpdate</method>
+      <line>102</line>
+    </frame>
+    <frame>
+      <class>main.bd.BD</class>
+      <method>juegoInsert</method>
+      <line>179</line>
+    </frame>
+    <frame>
+      <class>main.bd.BD</class>
+      <method>initData</method>
+      <line>346</line>
+    </frame>
+    <frame>
+      <class>main.ventanas.VentanaSeleccionJuego</class>
+      <method>main</method>
+      <line>122</line>
+    </frame>
+  </exception>
+</record>
+<record>
+  <date>2022-01-13T16:23:16</date>
+  <millis>1642087396438</millis>
+  <sequence>4</sequence>
+  <logger>BD-server-ejemplocs</logger>
+  <level>SEVERE</level>
+  <class>main.bd.BD</class>
+  <method>log</method>
+  <thread>1</thread>
+  <message>Error en BD	insert into usuario (nick, password, fechaNacimiento, genero) values('diego', '11111', 36545300000, 'HOMBRE') o </message>
+  <exception>
+    <message>org.sqlite.SQLiteException: [SQLITE_CONSTRAINT_PRIMARYKEY]  A PRIMARY KEY constraint failed (UNIQUE constraint failed: usuario.nick)</message>
+    <frame>
+      <class>org.sqlite.core.DB</class>
+      <method>newSQLException</method>
+      <line>1030</line>
+    </frame>
+    <frame>
+      <class>org.sqlite.core.DB</class>
+      <method>newSQLException</method>
+      <line>1042</line>
+    </frame>
+    <frame>
+      <class>org.sqlite.core.DB</class>
+      <method>throwex</method>
+      <line>1007</line>
+    </frame>
+    <frame>
+      <class>org.sqlite.core.NativeDB</class>
+      <method>_exec_utf8</method>
+    </frame>
+    <frame>
+      <class>org.sqlite.core.NativeDB</class>
+      <method>_exec</method>
+      <line>97</line>
+    </frame>
+    <frame>
+      <class>org.sqlite.jdbc3.JDBC3Statement</class>
+      <method>executeUpdate</method>
+      <line>102</line>
+    </frame>
+    <frame>
+      <class>main.bd.BD</class>
+      <method>usuarioInsert</method>
+      <line>147</line>
+    </frame>
+    <frame>
+      <class>main.bd.BD</class>
+      <method>initData</method>
+      <line>387</line>
+    </frame>
+    <frame>
+      <class>main.ventanas.VentanaSeleccionJuego</class>
+      <method>main</method>
+      <line>122</line>
+    </frame>
+  </exception>
+</record>
+<record>
+  <date>2022-01-13T16:23:16</date>
+  <millis>1642087396612</millis>
+  <sequence>5</sequence>
+  <logger>BD-server-ejemplocs</logger>
+  <level>INFO</level>
+  <class>main.bd.BD</class>
+  <method>log</method>
+  <thread>1</thread>
+  <message>Creada base de datos</message>
+</record>
+<record>
+  <date>2022-01-13T16:23:21</date>
+  <millis>1642087401571</millis>
+  <sequence>6</sequence>
+  <logger>BD-server-ejemplocs</logger>
+  <level>INFO</level>
+  <class>main.bd.BD</class>
+  <method>log</method>
+  <thread>16</thread>
+  <message>Creada base de datos</message>
+</record>
+</log>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE log SYSTEM "logger.dtd">
+<log>
+<record>
+  <date>2022-01-13T16:28:34</date>
+  <millis>1642087714851</millis>
+  <sequence>0</sequence>
+  <logger>BD-server-ejemplocs</logger>
+  <level>INFO</level>
+  <class>main.bd.BD</class>
+  <method>log</method>
+  <thread>1</thread>
+  <message>Conectada base de datos pacman.bd</message>
+</record>
+<record>
+  <date>2022-01-13T16:28:34</date>
+  <millis>1642087714856</millis>
+  <sequence>1</sequence>
+  <logger>BD-server-ejemplocs</logger>
+  <level>INFO</level>
+  <class>main.bd.BD</class>
+  <method>log</method>
+  <thread>1</thread>
+  <message>Creada base de datos</message>
+</record>
+</log>
