@@ -3,18 +3,35 @@ package main.general;
 import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Event;
 import java.awt.Font;
 import java.awt.FontMetrics;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Toolkit;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
+import java.net.URL;
 import java.util.Date;
 
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
+import javax.swing.Timer;
 
-public class Tablero extends JPanel {
+import main.ventanas.NivelPacman;
+import main.bd.BD;
+import main.musica.Audio;
+import main.musica.SoundJLayer;
 
+
+public class Tablero extends JPanel implements ActionListener {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	Inicio inicio;
 
 	public Tablero(String usuario) {
@@ -22,9 +39,9 @@ public class Tablero extends JPanel {
 	}
 
 	public static void main(String[] args) {
-		// Lanzar Base de datos
-		// BD.initBD();
-		// Tablero tablero = new Tablero("Markel");
+		BD.initData();
+		Tablero tablero = new Tablero("Markel");
+		tablero.seleccionNivel();
 	}
 
 	public int[] colorFondo = { 0, 0, 0 };
@@ -33,49 +50,31 @@ public class Tablero extends JPanel {
 	public int[] colorParedesFantasmas = { 182, 30, 24 };
 	public int tamanyoRed = 30;
 
-	protected static int[][] tabler = {
-			{ 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 },
-			{ 1, 2, 2, 2, 2, 2, 2, 2, 2, 1, 2, 2, 2, 2, 2, 2, 1, 1, 2, 2, 2, 2, 2, 2, 1, 2, 2, 2, 2, 2, 2, 2, 2, 1 },
-			{ 1, 2, 1, 2, 1, 1, 2, 1, 2, 1, 2, 1, 1, 1, 1, 2, 1, 1, 2, 1, 1, 1, 1, 2, 1, 2, 1, 2, 1, 1, 2, 1, 2, 1 },
-			{ 1, 2, 2, 2, 2, 1, 2, 2, 2, 1, 2, 2, 2, 2, 1, 2, 1, 1, 2, 1, 2, 2, 2, 2, 1, 2, 2, 2, 1, 2, 2, 2, 2, 1 },
-			{ 1, 1, 1, 1, 2, 1, 1, 1, 2, 1, 1, 1, 1, 2, 1, 2, 2, 2, 2, 1, 2, 1, 1, 1, 1, 2, 1, 1, 1, 2, 1, 1, 1, 1 },
-			{ 1, 2, 2, 2, 2, 1, 2, 2, 2, 2, 2, 1, 2, 2, 1, 2, 1, 1, 2, 1, 2, 2, 1, 2, 2, 2, 2, 2, 1, 2, 2, 2, 2, 1 },
-			{ 1, 2, 1, 1, 1, 1, 2, 1, 2, 1, 2, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 2, 1, 2, 1, 2, 1, 1, 1, 1, 2, 1 },
-			{ 1, 2, 2, 2, 2, 1, 2, 2, 2, 1, 2, 1, 2, 1, 2, 1, 1, 1, 1, 2, 1, 2, 1, 2, 1, 2, 2, 2, 1, 2, 2, 2, 2, 1 },
-			{ 1, 2, 1, 1, 2, 1, 2, 1, 2, 1, 2, 2, 2, 1, 2, 2, 2, 2, 2, 2, 1, 2, 2, 2, 1, 2, 1, 2, 1, 2, 1, 1, 2, 1 },
-			{ 1, 2, 2, 2, 2, 2, 2, 2, 2, 1, 1, 1, 2, 1, 1, 1, 1, 1, 1, 1, 1, 2, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 1 },
-			{ 1, 1, 1, 1, 1, 2, 1, 1, 2, 2, 2, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 2, 2, 2, 1, 1, 2, 1, 1, 1, 1, 1 },
-			{ 1, 1, 1, 2, 2, 2, 1, 1, 1, 1, 2, 1, 1, 1, 1, 2, 1, 1, 2, 1, 1, 1, 1, 2, 1, 1, 1, 1, 2, 2, 2, 1, 1, 1 },
-			{ 4, 2, 1, 2, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 1, 1, 2, 1, 2, 4 },
-			{ 1, 2, 1, 2, 2, 2, 1, 2, 1, 1, 1, 1, 1, 2, 1, 1, 3, 3, 1, 1, 2, 1, 1, 1, 1, 1, 2, 1, 2, 2, 2, 1, 2, 1 },
-			{ 1, 2, 1, 2, 1, 2, 2, 2, 2, 2, 2, 2, 1, 2, 1, 2, 2, 2, 2, 1, 2, 1, 2, 2, 2, 2, 2, 2, 2, 1, 2, 1, 2, 1 },
-			{ 1, 2, 1, 2, 1, 2, 1, 1, 1, 2, 1, 2, 1, 2, 1, 1, 1, 1, 1, 1, 2, 1, 2, 1, 2, 1, 1, 1, 2, 1, 2, 1, 2, 1 },
-			{ 1, 2, 2, 2, 1, 2, 1, 1, 1, 2, 1, 2, 1, 2, 2, 2, 2, 2, 2, 2, 2, 1, 2, 1, 2, 1, 1, 1, 2, 1, 2, 2, 2, 1 },
-			{ 1, 1, 1, 2, 1, 2, 2, 2, 2, 2, 2, 2, 1, 2, 1, 1, 1, 1, 1, 1, 2, 1, 2, 2, 2, 2, 2, 2, 2, 1, 2, 1, 1, 1 },
-			{ 1, 1, 1, 2, 1, 2, 1, 2, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 2, 1, 1, 1, 1, 1, 2, 1, 2, 1, 2, 1, 1, 1 },
-			{ 1, 2, 2, 2, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 2, 1, 1, 2, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 2, 2, 2, 1 },
-			{ 1, 2, 1, 2, 1, 2, 1, 1, 1, 1, 2, 1, 2, 1, 1, 2, 1, 1, 2, 1, 1, 2, 1, 2, 1, 1, 1, 1, 2, 1, 2, 1, 2, 1 },
-			{ 1, 2, 1, 2, 2, 2, 1, 2, 2, 2, 2, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 2, 2, 2, 2, 1, 2, 2, 2, 1, 2, 1 },
-			{ 1, 2, 1, 1, 1, 1, 1, 2, 1, 2, 1, 1, 1, 2, 1, 1, 1, 1, 1, 1, 2, 1, 1, 1, 2, 1, 2, 1, 1, 1, 1, 1, 2, 1 },
-			{ 1, 2, 2, 2, 2, 2, 2, 2, 1, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 1, 2, 2, 2, 2, 2, 2, 2, 1 },
-			{ 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 },
-			{ 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 }
-
-	};
-
-	public Tablero(Tablero tablero, int nivel) {
+	public Tablero(Inicio inicio, int nivel) {
 
 		this.inicio = inicio;
+		hiloMusica(Audio.class.getResource("/musica/snowman.wav"));
+
+		cargarImagenes();
+		iniciarVariable();
+		setNivel(nivel);
+
+		addKeyListener(new TAdapter());
+		setFocusable(true);
+
+		setBackground(Color.BLACK);
+		setDoubleBuffered(true);
 
 	}
 
 	private void setNivel(int nivel) {
-		if (nivel < 1 || nivel > 5) {
-			throw new IllegalArgumentException("El valor del nivel tiene que estar entre 1 y 5");
+		if (nivel < 1 || nivel > 6) {
+			throw new IllegalArgumentException("El valor del nivel tiene que estar entre 1 y 6");
 		}
-		for (int i = 0; i < Const.contNiv; i++) {
-			Const.contadNiv[i] = Const.niveles[nivel - 1];
+		for (int i = 0; i < Const.fantasmasN; i++) {
+			Const.fantvel[i] = Const.velocidades[nivel - 1];
 		}
+	
 	}
 
 	public void seleccionNivel() {
@@ -92,8 +91,30 @@ public class Tablero extends JPanel {
 		Const.fantvel = new int[Const.velMaxFant];
 		Const.dx = new int[4];
 		Const.dy = new int[4];
+		Const.screendata = new short[Const.leveldata.length];
 
+		Const.timer = new Timer(40, this);
 		Const.timer.start();
+	}
+
+	@Override
+	public void addNotify() {
+		super.addNotify();
+		initGame();
+	}
+
+	private void doAnim() {
+		Const.animadapacman--;
+
+		if (Const.animadapacman <= 0) {
+			Const.animadapacman = Const.retrasopacman;
+			Const.pacmananimpos = Const.pacmananimpos + Const.animadorpacman;
+
+			if (Const.pacmananimpos == (Const.cuentapacman - 1) || Const.pacmananimpos == 0) {
+				Const.animadorpacman = -Const.animadorpacman;
+			}
+		}
+
 	}
 
 	private void jugar(Graphics2D g2d) {
@@ -103,7 +124,8 @@ public class Tablero extends JPanel {
 
 			moverPacman();
 			pintarPacman(g2d);
-			// Faltan metodos
+			moverFantasma(g2d);
+			resueltoYa();
 		}
 	}
 
@@ -155,14 +177,148 @@ public class Tablero extends JPanel {
 		Const.pacmany = Const.pacmany + Const.velocidadpacman * Const.pacmandy;
 	}
 
+	private void pintarFant(Graphics2D g2d, int x, int y) { // Pintar el fantasma
+
+		g2d.drawImage(Const.fant, x, y, this);
+	}
+
+	private void moverFantasma(Graphics2D g2d) {// mover fantasmas
+
+		short i;
+		int pos;
+		int count;
+
+		for (i = 0; i < Const.fantasmasN; i++) {
+			if (Const.fantx[i] % Const.tamanobloque == 0 && Const.fanty[i] % Const.tamanobloque == 0) {
+				pos = Const.fantx[i] / Const.tamanobloque + Const.bloques * (int) (Const.fanty[i] / Const.tamanobloque);
+
+				count = 0;
+
+				if ((Const.screendata[pos] & 1) == 0 && Const.fantdx[i] != 1) {
+					Const.dx[count] = -1;
+					Const.dy[count] = 0;
+					count++;
+				}
+
+				if ((Const.screendata[pos] & 2) == 0 && Const.fantdy[i] != 1) {
+					Const.dx[count] = 0;
+					Const.dy[count] = -1;
+					count++;
+				}
+
+				if ((Const.screendata[pos] & 4) == 0 && Const.fantdx[i] != -1) {
+					Const.dx[count] = 1;
+					Const.dy[count] = 0;
+					count++;
+				}
+
+				if ((Const.screendata[pos] & 8) == 0 && Const.fantdy[i] != -1) {
+					Const.dx[count] = 0;
+					Const.dy[count] = 1;
+					count++;
+				}
+
+				if (count == 0) {
+
+					if ((Const.screendata[pos] & 15) == 15) {
+						Const.fantdx[i] = 0;
+						Const.fantdy[i] = 0;
+					} else {
+						Const.fantdx[i] = -Const.fantdx[i];
+						Const.fantdy[i] = -Const.fantdy[i];
+					}
+
+				} else {
+
+					count = (int) (Math.random() * count);
+
+					if (count > 3) {
+						count = 3;
+					}
+
+					Const.fantdx[i] = Const.dx[count];
+					Const.fantdy[i] = Const.dy[count];
+				}
+
+			}
+
+			Const.fantx[i] = Const.fantx[i] + (Const.fantdx[i] * Const.fantvel[i]);
+			Const.fanty[i] = Const.fanty[i] + (Const.fantdy[i] * Const.fantvel[i]);
+			pintarFant(g2d, Const.fantx[i] + 1, Const.fanty[i] + 1);
+
+			if (Const.pacmanx > (Const.fantx[i] - 12) && Const.pacmanx < (Const.fantx[i] + 12)
+					&& Const.pacmany > (Const.fanty[i] - 12) && Const.pacmany < (Const.fanty[i] + 12)
+					&& Const.inigame) {
+
+				Const.muerteEnYa = true;
+			}
+		}
+	}
+
+	private void resueltoYa() {
+		short i = 0;
+		boolean acabado = true;
+
+		while (i < Const.bloques * Const.bloques && acabado) {
+
+			if ((Const.screendata[i] & 48) != 0) {
+				acabado = false;
+			}
+
+			i++;
+		}
+
+		if (acabado) {
+
+			Const.resultado += 50;
+
+			if (Const.fantasmasN < Const.velMaxFant) {
+				Const.fantasmasN++;
+			}
+
+			if (Const.velactual < Const.velactual) {
+				Const.velactual++;
+			}
+			Date fecha = new Date();
+			this.inicio.guardarPuntuacion(Const.usuarioLogeado, fecha, Const.nivel, Const.resultado);
+			this.inicio.guardarNuevoMaxNivel(2, Const.nivel, Const.usuarioLogeado);
+			initLevel();
+		}
+	}
+
+	private void initGame() {
+
+		Const.vidaspacman = 3;
+
+		Const.resultado = 0;
+		initLevel();
+		Const.fantasmasN = 6;
+		Const.velactual = 3;
+	}
+
+	private void initLevel() {
+
+		int i;
+		for (i = 0; i < Const.bloques * Const.bloques; i++) {
+			Const.screendata[i] = Const.leveldata[i];
+
+		}
+
+		continuarNivel();
+	}
+
 	private void asesinato() {// Cuando lo asesinen los fantasmas
 
 		Const.vidaspacman--;
+		SoundJLayer soundToPlay = new SoundJLayer("src/musicPacman/muerte_pacman.mp3");
+		soundToPlay.play();
 
 		if (Const.vidaspacman == 0) {
-
+			Audio.paraAudioEnHilo(Audio.class.getResource("/musicPacman/Egundasantimamiña.wav"));
+			Const.inigame = false;
 			Date fecha = new Date();
-			// Guardar datos falta meter
+			this.inicio.guardarPuntuacion(Const.usuarioLogeado, fecha, Const.nivel, Const.resultado);
+
 		}
 
 		continuarNivel();
@@ -292,6 +448,63 @@ public class Tablero extends JPanel {
 
 	}
 
+	class TAdapter extends KeyAdapter {
+
+		@Override
+		public void keyPressed(KeyEvent e) {
+
+			int key = e.getKeyCode();
+
+			if (Const.inigame) {
+				if (key == KeyEvent.VK_LEFT) {
+					Const.exdx = -1;
+					Const.exdy = 0;
+				} else if (key == KeyEvent.VK_RIGHT) {
+					Const.exdx = 1;
+					Const.exdy = 0;
+				} else if (key == KeyEvent.VK_UP) {
+					Const.exdx = 0;
+					Const.exdy = -1;
+				} else if (key == KeyEvent.VK_DOWN) {
+					Const.exdx = 0;
+					Const.exdy = 1;
+				} else if (key == KeyEvent.VK_P) {
+					Const.inigame = false;
+					if (Const.timer.isRunning()) {
+						Const.timer.stop();
+					} else {
+						Const.timer.start();
+					}
+				} else if (key == KeyEvent.VK_C) {
+					Const.inigame = true;
+					if (Const.timer.isRunning()) {
+						Const.timer.stop();
+					} else {
+						Const.timer.start();
+					}
+				}
+
+			} else {
+				// Define la letra para inicio del juego
+				if (key == ' ') {
+					Const.inigame = true;
+					initGame();
+				}
+			}
+		}
+
+		@Override
+		public void keyReleased(KeyEvent e) {
+
+			int key = e.getKeyCode();
+
+			if (key == Event.LEFT || key == Event.RIGHT || key == Event.UP || key == Event.DOWN) {
+				Const.exdx = 0;
+				Const.exdy = 0;
+			}
+		}
+	}
+
 	private void dibujarLaberinto(Graphics2D g2d) {
 
 		short i = 0;
@@ -330,6 +543,27 @@ public class Tablero extends JPanel {
 		}
 	}
 
+	private void enseniarResultado(Graphics2D g) {
+		int i;
+		String s;
+
+		g.setFont(Const.smallfont);
+		g.setColor(new Color(96, 128, 255));
+		s = "Resultado: " + Const.resultado;
+		g.drawString(s, Const.tamanopantalla / 2 + 96, Const.tamanopantalla + 16);
+
+		for (i = 0; i < Const.vidaspacman; i++) {
+			g.drawImage(Const.pacman3derecha, i * 28 + 8, Const.tamanopantalla + 1, this);
+		}
+	}
+
+	@Override
+	public void paintComponent(Graphics g) {
+		super.paintComponent(g);
+
+		pintar(g);
+	}
+
 	private void pintar(Graphics g) {
 
 		Graphics2D g2d1 = (Graphics2D) g;
@@ -338,6 +572,8 @@ public class Tablero extends JPanel {
 		g2d1.fillRect(0, 0, Const.dimension.width, Const.dimension.height);
 
 		dibujarLaberinto(g2d1);
+		enseniarResultado(g2d1);
+		doAnim();
 
 		if (Const.inigame) {
 			jugar(g2d1);
@@ -345,8 +581,9 @@ public class Tablero extends JPanel {
 			if (Const.vidaspacman > 0) {
 				mostarPanr(g2d1);
 			} else {
-				// Añadir
-				this.Inicio.dispose();
+				System.out.println("He llegado al cambio de ventana");
+				new NivelPacman(Const.usuarioLogeado).setVisible(true);
+				this.inicio.dispose();
 			}
 		}
 
@@ -392,123 +629,119 @@ public class Tablero extends JPanel {
 
 	}
 
-	public int contarPuntos(int[][] tablero) {
+//	public int contarPuntos(int[][] tablero) {
+//
+//		int cantidadPuntos = 0;
+//
+//		for (int filas = 0; filas < tablero.length; filas++) {
+//
+//			for (int columnas = 0; columnas < tablero[filas].length; columnas++) {
+//
+//				if (tablero[filas][columnas] == 2) {
+//
+//					cantidadPuntos++;
+//				}
+//			}
+//		}
+//
+//		return cantidadPuntos;
+//	}
+//
+//	public int contarCerezas(int[][] tablero) {
+//		int cantidadCerezas = 0;
+//
+//		for (int filas = 0; filas < tablero.length; filas++) {
+//
+//			for (int columnas = 0; columnas < tablero[filas].length; columnas++) {
+//
+//				if (tablero[filas][columnas] == 5) {
+//
+//					cantidadCerezas++;
+//
+//				}
+//			}
+//		}
+//		return cantidadCerezas;
+//	}
+//
+//	public int contarFresas(int[][] tablero) {
+//		int cantidadFresas = 0;
+//
+//		for (int filas = 0; filas < tablero.length; filas++) {
+//
+//			for (int columnas = 0; columnas < tablero[filas].length; columnas++) {
+//
+//				if (tablero[filas][columnas] == 5) {
+//
+//					cantidadFresas++;
+//
+//				}
+//			}
+//		}
+//		return cantidadFresas;
+//	}
+//
+//	public int contarNaranjas(int[][] tablero) {
+//		int cantidadNaranjas = 0;
+//
+//		for (int filas = 0; filas < tablero.length; filas++) {
+//
+//			for (int columnas = 0; columnas < tablero[filas].length; columnas++) {
+//
+//				if (tablero[filas][columnas] == 5) {
+//
+//					cantidadNaranjas++;
+//
+//				}
+//			}
+//		}
+//		return cantidadNaranjas;
+//	}
 
-		int cantidadPuntos = 0;
+//	public int contarMelones(int[][] tablero) {
+//		int cantidadMelones = 0;
+//
+//		for (int filas = 0; filas < tablero.length; filas++) {
+//
+//			for (int columnas = 0; columnas < tablero[filas].length; columnas++) {
+//
+//				if (tablero[filas][columnas] == 5) {
+//
+//					cantidadMelones++;
+//
+//				}
+//			}
+//		}
+//		return cantidadMelones;
+//	}
 
-		for (int filas = 0; filas < tablero.length; filas++) {
+//	public int contarManzanas(int[][] tablero) {
+//		int cantidadManzanas = 0;
+//
+//		for (int filas = 0; filas < tablero.length; filas++) {
+//
+//			for (int columnas = 0; columnas < tablero[filas].length; columnas++) {
+//
+//				if (tablero[filas][columnas] == 5) {
+//
+//					cantidadManzanas++;
+//
+//				}
+//			}
+//		}
+//		return cantidadManzanas;
+//	}
 
-			for (int columnas = 0; columnas < tablero[filas].length; columnas++) {
 
-				if (tablero[filas][columnas] == 2) {
-
-					cantidadPuntos++;
-				}
-			}
-		}
-
-		return cantidadPuntos;
+	public void hiloMusica(URL recurso) {
+		Audio.lanzaAudioEnHilo(recurso);
 	}
 
-	public int contarCerezas(int[][] tablero) {
-		int cantidadCerezas = 0;
+	@Override
+	public void actionPerformed(ActionEvent arg0) {
+		// TODO Auto-generated method stub
+		repaint();
 
-		for (int filas = 0; filas < tablero.length; filas++) {
-
-			for (int columnas = 0; columnas < tablero[filas].length; columnas++) {
-
-				if (tablero[filas][columnas] == 5) {
-
-					cantidadCerezas++;
-
-				}
-			}
-		}
-		return cantidadCerezas;
-	}
-
-	public int contarFresas(int[][] tablero) {
-		int cantidadFresas = 0;
-
-		for (int filas = 0; filas < tablero.length; filas++) {
-
-			for (int columnas = 0; columnas < tablero[filas].length; columnas++) {
-
-				if (tablero[filas][columnas] == 5) {
-
-					cantidadFresas++;
-
-				}
-			}
-		}
-		return cantidadFresas;
-	}
-
-	public int contarNaranjas(int[][] tablero) {
-		int cantidadNaranjas = 0;
-
-		for (int filas = 0; filas < tablero.length; filas++) {
-
-			for (int columnas = 0; columnas < tablero[filas].length; columnas++) {
-
-				if (tablero[filas][columnas] == 5) {
-
-					cantidadNaranjas++;
-
-				}
-			}
-		}
-		return cantidadNaranjas;
-	}
-
-	public int contarMelones(int[][] tablero) {
-		int cantidadMelones = 0;
-
-		for (int filas = 0; filas < tablero.length; filas++) {
-
-			for (int columnas = 0; columnas < tablero[filas].length; columnas++) {
-
-				if (tablero[filas][columnas] == 5) {
-
-					cantidadMelones++;
-
-				}
-			}
-		}
-		return cantidadMelones;
-	}
-
-	public int contarManzanas(int[][] tablero) {
-		int cantidadManzanas = 0;
-
-		for (int filas = 0; filas < tablero.length; filas++) {
-
-			for (int columnas = 0; columnas < tablero[filas].length; columnas++) {
-
-				if (tablero[filas][columnas] == 5) {
-
-					cantidadManzanas++;
-
-				}
-			}
-		}
-		return cantidadManzanas;
-	}
-
-	public int[] getColorFondo() {
-		return colorFondo;
-	}
-
-	public int[] getColorPuntos() {
-		return colorPuntos;
-	}
-
-	public int[] getColorParedes() {
-		return colorParedes;
-	}
-
-	public int[] getColorParedesFantasmas() {
-		return colorParedesFantasmas;
 	}
 
 }
