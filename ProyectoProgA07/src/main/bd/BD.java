@@ -330,7 +330,7 @@ public class BD {
 	public static void initData() {
 
 		// Paso 1 abrir y crear las tablas de la BDD
-		Connection con = initBD("multijuego.bd");
+		Connection con = initBD("pacman.bd");
 		Statement st = creacionTablas(con);
 		// deleteData(st);
 		// Paso 2 Insertar datos tabla juego
