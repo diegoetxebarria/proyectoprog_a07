@@ -52,7 +52,7 @@ public class Tablero extends JPanel implements ActionListener {
 	public Tablero(Inicio inicio, int nivel) {
 
 		this.inicio = inicio;
-		hiloMusica(Audio.class.getResource("/musica/snowman.wav"));
+		hiloMusica(Audio.class.getResource("/musica/pacman_musica.wav"));
 
 		cargarImagenes();
 		iniciarVariable();
@@ -81,7 +81,7 @@ public class Tablero extends JPanel implements ActionListener {
 	}
 
 	private void iniciarVariable() {
-		Const.colorLab = new Color(5, 0, 5);
+		Const.colorLab = new Color(5, 180, 5);
 		Const.dimension = new Dimension(400, 400);
 		Const.fantx = new int[Const.velMaxFant];
 		Const.fantdx = new int[Const.velMaxFant];
@@ -309,11 +309,11 @@ public class Tablero extends JPanel implements ActionListener {
 	private void asesinato() {// Cuando lo asesinen los fantasmas
 
 		Const.vidaspacman--;
-		SoundJLayer soundToPlay = new SoundJLayer("src/musicPacman/muerte_pacman.mp3");
+		SoundJLayer soundToPlay = new SoundJLayer("src/musica/muerte_pacman.mp3");
 		soundToPlay.play();
 
 		if (Const.vidaspacman == 0) {
-			Audio.paraAudioEnHilo(Audio.class.getResource("/musicPacman/Egundasantimamiña.wav"));
+			Audio.paraAudioEnHilo(Audio.class.getResource("/musica/snowman.wav"));
 			Const.inigame = false;
 			Date fecha = new Date();
 			this.inicio.guardarPuntuacion(Const.usuarioLogeado, fecha, Const.nivel, Const.resultado);
