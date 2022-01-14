@@ -44,9 +44,9 @@ public class Tablero extends JPanel implements ActionListener {
 		tablero.seleccionNivel();
 	}
 
-	public int[] colorFondo = { 0, 0, 0 };
+	public int[] colorFondo = { 10, 0, 0 };
 	public int[] colorPuntos = { 255, 255, 255 };
-	public int[] colorParedes = { 24, 30, 182 };
+	public int[] colorParedes = { 234, 30, 182 };
 	public int[] colorParedesFantasmas = { 182, 30, 24 };
 	public int tamanyoRed = 30;
 

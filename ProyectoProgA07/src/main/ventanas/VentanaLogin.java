@@ -27,6 +27,7 @@ public class VentanaLogin extends JFrame {
 	private JTextField textField;
 	private JPasswordField passwordField_1;
 	public static final String NOMBRE_BD = "pacman.bd";
+	public static final String NOMBRE_BD_TEST = "pacmanTest.bd";
 
 	public VentanaLogin() {
 
