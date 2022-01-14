@@ -43,8 +43,8 @@ public class Tablero extends JPanel implements ActionListener {
 		tablero.seleccionNivel();
 	}
 
-	public int[] colorFondo = { 10, 0, 0 };
-	public int[] colorPuntos = { 255, 255, 255 };
+	public int[] colorFondo = { 10, 200, 0 };
+	public int[] colorPuntos = { 255, 5, 255 };
 	public int[] colorParedes = { 234, 30, 182 };
 	public int[] colorParedesFantasmas = { 182, 30, 24 };
 	public int tamanyoRed = 30;
@@ -81,7 +81,7 @@ public class Tablero extends JPanel implements ActionListener {
 	}
 
 	private void iniciarVariable() {
-		Const.colorLab = new Color(5, 100, 5);
+		Const.colorLab = new Color(5, 0, 5);
 		Const.dimension = new Dimension(400, 400);
 		Const.fantx = new int[Const.velMaxFant];
 		Const.fantdx = new int[Const.velMaxFant];
@@ -625,11 +625,11 @@ public class Tablero extends JPanel implements ActionListener {
 		Const.pacman2derecha = new ImageIcon(getClass().getResource("/img/pacman/pacman2derecha.gif")).getImage();
 		Const.pacman3derecha = new ImageIcon(getClass().getResource("/img/pacman/pacman3derecha.gif")).getImage();
 		Const.pacma4derecha = new ImageIcon(getClass().getResource("/img/pacman/pacman4derecha.gif")).getImage();
-		Const.fresa = new ImageIcon(getClass().getResource("/img/imagenes/fresa.png")).getImage();
-		Const.manzana = new ImageIcon(getClass().getResource("/img/imagenes/manzana.png")).getImage();
-		Const.melon = new ImageIcon(getClass().getResource("/img/imagenes/melon.png")).getImage();
-		Const.naranja = new ImageIcon(getClass().getResource("/img/imagenes/naranja.png")).getImage();
-		Const.cereza = new ImageIcon(getClass().getResource("/img/imagenes/cereza.png")).getImage();
+//		Const.fresa = new ImageIcon(getClass().getResource("/img/imagenes/fresa.png")).getImage();
+//		Const.manzana = new ImageIcon(getClass().getResource("/img/imagenes/manzana.png")).getImage();
+//		Const.melon = new ImageIcon(getClass().getResource("/img/imagenes/melon.png")).getImage();
+//		Const.naranja = new ImageIcon(getClass().getResource("/img/imagenes/naranja.png")).getImage();
+//		Const.cereza = new ImageIcon(getClass().getResource("/img/imagenes/cereza.png")).getImage();
 
 	}
 	

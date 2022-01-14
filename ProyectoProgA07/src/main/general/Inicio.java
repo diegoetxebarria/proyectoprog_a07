@@ -27,7 +27,7 @@ public class Inicio extends JFrame implements Juego {
 	private void initUI() {
 
 		add(new Tablero(this, nivel));
-		setTitle("Juego PacMan");
+		setTitle("PacMan");
 		setIconImage(Toolkit.getDefaultToolkit()
 				.getImage(this.getClass().getResource("/img/Imagenes_sueltas/pacman-favicon.png")));
 		setDefaultCloseOperation(EXIT_ON_CLOSE);

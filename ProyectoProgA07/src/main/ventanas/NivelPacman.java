@@ -211,10 +211,10 @@ public class NivelPacman extends JFrame {
 	}
 
 	public static void main(String[] args) {
-		try { // Cambiamos el look and feel (se tiene que hacer antes de crear la GUI
+		try { 
 			UIManager.setLookAndFeel("javax.swing.plaf.nimbus.NimbusLookAndFeel");
 		} catch (Exception e) {
-		} // Si Nimbus no está disponible, se usa el l&f por defecto
+		} 
 		NivelPacman d = new NivelPacman("Diego");
 		d.setVisible(true);
 	}

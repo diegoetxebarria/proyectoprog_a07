@@ -8,5 +8,14 @@
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="lib" path="/Users/diegoetxebarria/Downloads/sqlite-jdbc-3.36.0.3.jar"/>
 	<classpathentry kind="lib" path="sqlite-jdbc-3.36.0.3.jar"/>
+	<classpathentry kind="lib" path="/Users/diegoetxebarria/.m2/repository/javazoom/jlayer/1.0.1/jlayer-1.0.1.jar" sourcepath="/Users/diegoetxebarria/.m2/repository/javazoom/jlayer/1.0.1/jlayer-1.0.1-sources.jar">
+		<attributes>
+			<attribute name="maven.pomderived" value="true"/>
+			<attribute name="maven.groupId" value="javazoom"/>
+			<attribute name="maven.artifactId" value="jlayer"/>
+			<attribute name="maven.version" value="1.0.1"/>
+			<attribute name="maven.scope" value="compile"/>
+		</attributes>
+	</classpathentry>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
