@@ -35,5 +35,5 @@ public class Niveles {
 	public void setJuegoId(Integer juegoId) {
 		this.juegoId = juegoId;
 	}
-	
+
 }

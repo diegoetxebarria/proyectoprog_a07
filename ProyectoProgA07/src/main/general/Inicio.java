@@ -15,7 +15,7 @@ import main.bd.BD;
 import main.mod.Juego;
 import main.ventanas.VentanaLogin;
 
-public class Inicio extends JFrame implements Juego{
+public class Inicio extends JFrame implements Juego {
 
 	private static final long serialVersionUID = 1L;
 	private int nivel = 1;

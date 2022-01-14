@@ -91,14 +91,14 @@ public class NivelPacman extends JFrame {
 		
 		int nivelMax = BD.nivelselect(st, 2, usuarioLogeado);
 		
-		ListennerBoton listenner = new ListennerBoton();
+		ListenerBoton listener = new ListenerBoton();
 		
-		crearBoton(botonesNivel, listenner, 1, 30);
-		crearBoton(botonesNivel, listenner, 2, 140);
-		crearBoton(botonesNivel, listenner, 3, 254);
-		crearBoton(botonesNivel, listenner, 4, 362);
-		crearBoton(botonesNivel, listenner, 5, 466);
-		crearBoton(botonesNivel, listenner, 6, 577);
+		crearBoton(botonesNivel, listener, 1, 30);
+		crearBoton(botonesNivel, listener, 2, 140);
+		crearBoton(botonesNivel, listener, 3, 254);
+		crearBoton(botonesNivel, listener, 4, 362);
+		crearBoton(botonesNivel, listener, 5, 466);
+		crearBoton(botonesNivel, listener, 6, 577);
 		
 		for (JButton boton : botonesNivel) {
 			int btnNum = Integer.parseInt(boton.getText());
@@ -177,7 +177,7 @@ public class NivelPacman extends JFrame {
 	}
 	
 	
-	private void crearBoton(JButton[] botonesNivel, ListennerBoton listenner, int numero, int x) {
+	private void crearBoton(JButton[] botonesNivel, ListenerBoton listenner, int numero, int x) {
 		if(numero < 1) {
 			throw new IllegalArgumentException("El número mayor que cero");
 		}
@@ -192,7 +192,7 @@ public class NivelPacman extends JFrame {
 		botonesNivel[numero-1] = btnNivel1;
 	}
 
-	private class ListennerBoton implements ActionListener {
+	private class ListenerBoton implements ActionListener {
 
 		@Override
 		public void actionPerformed(ActionEvent e) {
